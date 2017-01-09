@@ -1,0 +1,1653 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SmartTripModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_E_ABONNE_ABO">
+          <Key>
+            <PropertyRef Name="ABO_ID" />
+          </Key>
+          <Property Name="ABO_ID" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ABO_PSEUDO" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="ABO_MOTPASSE" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="ABO_MEL" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="ABO_NOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ABO_PRENOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ABO_ADRLIGNE1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ABO_ADRLIGNE2" Type="varchar" MaxLength="100" />
+          <Property Name="ABO_CP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ABO_VILLE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ABO_ETAT" Type="varchar" MaxLength="50" />
+          <Property Name="PAY_ID" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ABO_LATITUDE" Type="real" Nullable="false" />
+          <Property Name="ABO_LONGITUDE" Type="real" Nullable="false" />
+          <Property Name="IND_INDICATIF" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ABO_TEL" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="ABO_AEROPORT" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_E_ALIAS_ALI">
+          <Key>
+            <PropertyRef Name="ALI_ID" />
+          </Key>
+          <Property Name="ALI_ID" Type="numeric" Precision="7" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HOT_ID" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="ALI_INTITULE" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_AVIS_AVI">
+          <Key>
+            <PropertyRef Name="AVI_ID" />
+          </Key>
+          <Property Name="AVI_ID" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ABO_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HOT_ID" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="VIS_ID" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="PER_ID" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="WIF_ID" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="LNG_ID" Type="numeric" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="AVI_DATE" Type="datetime" Nullable="false" />
+          <Property Name="AVI_TITRE" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AVI_DETAIL" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="AVI_NOTEGLOBALE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_NOTECHAMBRES" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_NOTESERVICE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_NOTEPROPRETE" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_CONSEIL" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="T_E_HOTEL_HOT">
+          <Key>
+            <PropertyRef Name="HOT_ID" />
+          </Key>
+          <Property Name="HOT_ID" Type="numeric" Precision="6" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HTR_ID" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="PRX_ID" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="HOT_NOM" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="HOT_DESCRIPTION" Type="varchar" MaxLength="500" />
+          <Property Name="HOT_ADRLIGNE1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HOT_ADRLIGNE2" Type="varchar" MaxLength="100" />
+          <Property Name="HOT_CP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HOT_VILLE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HOT_ETAT" Type="varchar" MaxLength="50" />
+          <Property Name="PAY_ID" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="HOT_LATITUDE" Type="real" Nullable="false" />
+          <Property Name="HOT_LONGITUDE" Type="real" Nullable="false" />
+          <Property Name="IND_INDICATIF" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="CAT_NBETOILES" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="HOT_TEL" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="HOT_MEL" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="HOT_SITEWEB" Type="varchar" MaxLength="100" />
+          <Property Name="HOT_NBCHAMBRES" Type="numeric" Precision="3" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_E_HOTELIER_HTR">
+          <Key>
+            <PropertyRef Name="HTR_ID" />
+          </Key>
+          <Property Name="HTR_ID" Type="numeric" Precision="6" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HTR_MEL" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="HTR_MOTPASSE" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="HTR_NOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HTR_PRENOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HTR_ADRLIGNE1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="HTR_ADRLIGNE2" Type="varchar" MaxLength="100" />
+          <Property Name="HTR_CP" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="HTR_VILLE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="HTR_ETAT" Type="varchar" MaxLength="50" />
+          <Property Name="PAY_ID" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_PHOTO_PHO">
+          <Key>
+            <PropertyRef Name="PHO_ID" />
+          </Key>
+          <Property Name="PHO_ID" Type="numeric" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HOT_ID" Type="numeric" Precision="6" Scale="0" />
+          <Property Name="AVI_ID" Type="numeric" Precision="10" Scale="0" />
+          <Property Name="PHO_URL" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_REPONSEAVIS_REP">
+          <Key>
+            <PropertyRef Name="AVI_ID" />
+          </Key>
+          <Property Name="AVI_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="REP_DATE" Type="datetime" Nullable="false" />
+          <Property Name="REP_COMMENTAIRE" Type="varchar" MaxLength="2000" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_EQUIPEMENTHOTEL_EQH">
+          <Key>
+            <PropertyRef Name="HOT_ID" />
+            <PropertyRef Name="EQU_ID" />
+          </Key>
+          <Property Name="HOT_ID" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="EQU_ID" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_FAVORI_FAV">
+          <Key>
+            <PropertyRef Name="ABO_ID" />
+            <PropertyRef Name="HOT_ID" />
+          </Key>
+          <Property Name="ABO_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HOT_ID" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_HOTELSIMILAIRE_HOS">
+          <Key>
+            <PropertyRef Name="HOT_ID" />
+            <PropertyRef Name="HOT_IDSIMILAIRE" />
+          </Key>
+          <Property Name="HOT_ID" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="HOT_IDSIMILAIRE" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_LIEUALENTOURAVIS_LAA">
+          <Key>
+            <PropertyRef Name="AVI_ID" />
+            <PropertyRef Name="LAL_ID" />
+          </Key>
+          <Property Name="AVI_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="LAL_ID" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_STYLEAVIS_STA">
+          <Key>
+            <PropertyRef Name="AVI_ID" />
+            <PropertyRef Name="STY_ID" />
+          </Key>
+          <Property Name="AVI_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="STY_ID" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="STA_VALEUR" Type="char" MaxLength="3" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_UTILITE_UTI">
+          <Key>
+            <PropertyRef Name="ABO_ID" />
+            <PropertyRef Name="AVI_ID" />
+          </Key>
+          <Property Name="ABO_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="AVI_ID" Type="numeric" Precision="10" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_CATEGORIEHOTEL_CAT">
+          <Key>
+            <PropertyRef Name="CAT_NBETOILES" />
+          </Key>
+          <Property Name="CAT_NBETOILES" Type="numeric" Precision="1" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_EQUIPEMENT_EQU">
+          <Key>
+            <PropertyRef Name="EQU_ID" />
+          </Key>
+          <Property Name="EQU_ID" Type="numeric" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EQU_LIBELLE" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_FOURCHETTEPRIX_PRX">
+          <Key>
+            <PropertyRef Name="PRX_ID" />
+          </Key>
+          <Property Name="PRX_ID" Type="numeric" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PRX_FOURCHETTE" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_INDICATIFTEL_IND">
+          <Key>
+            <PropertyRef Name="IND_INDICATIF" />
+          </Key>
+          <Property Name="IND_INDICATIF" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_LANGUEAVIS_LNG">
+          <Key>
+            <PropertyRef Name="LNG_ID" />
+          </Key>
+          <Property Name="LNG_ID" Type="numeric" Precision="3" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LNG_LIBELLE" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_LIEUALENTOUR_LAL">
+          <Key>
+            <PropertyRef Name="LAL_ID" />
+          </Key>
+          <Property Name="LAL_ID" Type="numeric" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LAL_LIEU" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_PAYS_PAY">
+          <Key>
+            <PropertyRef Name="PAY_ID" />
+          </Key>
+          <Property Name="PAY_ID" Type="numeric" Precision="4" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAY_NOM" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_PERIODEVISITE_PER">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="numeric" Precision="3" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PER_MOIS" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="PER_ANNEE" Type="numeric" Precision="4" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_STYLE_STY">
+          <Key>
+            <PropertyRef Name="STY_ID" />
+          </Key>
+          <Property Name="STY_ID" Type="numeric" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="STY_LIBELLE" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_TYPEVISITE_VIS">
+          <Key>
+            <PropertyRef Name="VIS_ID" />
+          </Key>
+          <Property Name="VIS_ID" Type="numeric" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VIS_LIBELLE" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_WIFI_WIF">
+          <Key>
+            <PropertyRef Name="WIF_ID" />
+          </Key>
+          <Property Name="WIF_ID" Type="numeric" Precision="1" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WIF_LIBELLE" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ABO_IND">
+          <End Role="T_R_INDICATIFTEL_IND" Type="Self.T_R_INDICATIFTEL_IND" Multiplicity="1" />
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_INDICATIFTEL_IND">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Principal>
+            <Dependent Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ABO_PAY">
+          <End Role="T_R_PAYS_PAY" Type="Self.T_R_PAYS_PAY" Multiplicity="1" />
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PAYS_PAY">
+              <PropertyRef Name="PAY_ID" />
+            </Principal>
+            <Dependent Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="PAY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALI_HOT">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_E_ALIAS_ALI" Type="Self.T_E_ALIAS_ALI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_E_ALIAS_ALI">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_ABO">
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="ABO_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="ABO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_HOT">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_VIS">
+          <End Role="T_R_TYPEVISITE_VIS" Type="Self.T_R_TYPEVISITE_VIS" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_TYPEVISITE_VIS">
+              <PropertyRef Name="VIS_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="VIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_WIF">
+          <End Role="T_R_WIFI_WIF" Type="Self.T_R_WIFI_WIF" Multiplicity="0..1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_WIFI_WIF">
+              <PropertyRef Name="WIF_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="WIF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQH_EQU">
+          <End Role="T_R_EQUIPEMENT_EQU" Type="Self.T_R_EQUIPEMENT_EQU" Multiplicity="1" />
+          <End Role="T_J_EQUIPEMENTHOTEL_EQH" Type="Self.T_J_EQUIPEMENTHOTEL_EQH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_EQUIPEMENT_EQU">
+              <PropertyRef Name="EQU_ID" />
+            </Principal>
+            <Dependent Role="T_J_EQUIPEMENTHOTEL_EQH">
+              <PropertyRef Name="EQU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EQH_HOT">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_J_EQUIPEMENTHOTEL_EQH" Type="Self.T_J_EQUIPEMENTHOTEL_EQH" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_J_EQUIPEMENTHOTEL_EQH">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOS_HOT1">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_J_HOTELSIMILAIRE_HOS" Type="Self.T_J_HOTELSIMILAIRE_HOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_J_HOTELSIMILAIRE_HOS">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOS_HOT2">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_J_HOTELSIMILAIRE_HOS" Type="Self.T_J_HOTELSIMILAIRE_HOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_J_HOTELSIMILAIRE_HOS">
+              <PropertyRef Name="HOT_IDSIMILAIRE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_CAT">
+          <End Role="T_R_CATEGORIEHOTEL_CAT" Type="Self.T_R_CATEGORIEHOTEL_CAT" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CATEGORIEHOTEL_CAT">
+              <PropertyRef Name="CAT_NBETOILES" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="CAT_NBETOILES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_IND">
+          <End Role="T_R_INDICATIFTEL_IND" Type="Self.T_R_INDICATIFTEL_IND" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_INDICATIFTEL_IND">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_PAY">
+          <End Role="T_R_PAYS_PAY" Type="Self.T_R_PAYS_PAY" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PAYS_PAY">
+              <PropertyRef Name="PAY_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="PAY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_PRX">
+          <End Role="T_R_FOURCHETTEPRIX_PRX" Type="Self.T_R_FOURCHETTEPRIX_PRX" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_FOURCHETTEPRIX_PRX">
+              <PropertyRef Name="PRX_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="PRX_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LAA_AVI">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="1" />
+          <End Role="T_J_LIEUALENTOURAVIS_LAA" Type="Self.T_J_LIEUALENTOURAVIS_LAA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_J_LIEUALENTOURAVIS_LAA">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LAA_LAL">
+          <End Role="T_R_LIEUALENTOUR_LAL" Type="Self.T_R_LIEUALENTOUR_LAL" Multiplicity="1" />
+          <End Role="T_J_LIEUALENTOURAVIS_LAA" Type="Self.T_J_LIEUALENTOURAVIS_LAA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_LIEUALENTOUR_LAL">
+              <PropertyRef Name="LAL_ID" />
+            </Principal>
+            <Dependent Role="T_J_LIEUALENTOURAVIS_LAA">
+              <PropertyRef Name="LAL_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHO_AVI">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="0..1" />
+          <End Role="T_E_PHOTO_PHO" Type="Self.T_E_PHOTO_PHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_E_PHOTO_PHO">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHO_HOT">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="0..1" />
+          <End Role="T_E_PHOTO_PHO" Type="Self.T_E_PHOTO_PHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_E_PHOTO_PHO">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STA_AVI">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="1" />
+          <End Role="T_J_STYLEAVIS_STA" Type="Self.T_J_STYLEAVIS_STA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_J_STYLEAVIS_STA">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STA_STY">
+          <End Role="T_R_STYLE_STY" Type="Self.T_R_STYLE_STY" Multiplicity="1" />
+          <End Role="T_J_STYLEAVIS_STA" Type="Self.T_J_STYLEAVIS_STA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_STYLE_STY">
+              <PropertyRef Name="STY_ID" />
+            </Principal>
+            <Dependent Role="T_J_STYLEAVIS_STA">
+              <PropertyRef Name="STY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_AVIS_REFERENCE_T_R_LANG">
+          <End Role="T_R_LANGUEAVIS_LNG" Type="Self.T_R_LANGUEAVIS_LNG" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_LANGUEAVIS_LNG">
+              <PropertyRef Name="LNG_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="LNG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_AVIS_REFERENCE_T_R_PERI">
+          <End Role="T_R_PERIODEVISITE_PER" Type="Self.T_R_PERIODEVISITE_PER" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PERIODEVISITE_PER">
+              <PropertyRef Name="PER_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="PER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_HOTE_REFERENCE_T_E_HOTE">
+          <End Role="T_E_HOTELIER_HTR" Type="Self.T_E_HOTELIER_HTR" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTELIER_HTR">
+              <PropertyRef Name="HTR_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HTR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_HOTE_REFERENCE_T_R_PAYS">
+          <End Role="T_R_PAYS_PAY" Type="Self.T_R_PAYS_PAY" Multiplicity="1" />
+          <End Role="T_E_HOTELIER_HTR" Type="Self.T_E_HOTELIER_HTR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PAYS_PAY">
+              <PropertyRef Name="PAY_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTELIER_HTR">
+              <PropertyRef Name="PAY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_REPO_REFERENCE_T_E_AVIS">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="1" />
+          <End Role="T_E_REPONSEAVIS_REP" Type="Self.T_E_REPONSEAVIS_REP" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_E_REPONSEAVIS_REP">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_FAVO_REFERENCE_T_E_ABON">
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="1" />
+          <End Role="T_J_FAVORI_FAV" Type="Self.T_J_FAVORI_FAV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="ABO_ID" />
+            </Principal>
+            <Dependent Role="T_J_FAVORI_FAV">
+              <PropertyRef Name="ABO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_FAVO_REFERENCE_T_E_HOTE">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_J_FAVORI_FAV" Type="Self.T_J_FAVORI_FAV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_J_FAVORI_FAV">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTI_ABO">
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="1" />
+          <End Role="T_J_UTILITE_UTI" Type="Self.T_J_UTILITE_UTI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="ABO_ID" />
+            </Principal>
+            <Dependent Role="T_J_UTILITE_UTI">
+              <PropertyRef Name="ABO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_UTI_AVI">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="1" />
+          <End Role="T_J_UTILITE_UTI" Type="Self.T_J_UTILITE_UTI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_J_UTILITE_UTI">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SmartTripModelStoreContainer">
+          <EntitySet Name="T_E_ABONNE_ABO" EntityType="Self.T_E_ABONNE_ABO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_ALIAS_ALI" EntityType="Self.T_E_ALIAS_ALI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_AVIS_AVI" EntityType="Self.T_E_AVIS_AVI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_HOTEL_HOT" EntityType="Self.T_E_HOTEL_HOT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_HOTELIER_HTR" EntityType="Self.T_E_HOTELIER_HTR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_PHOTO_PHO" EntityType="Self.T_E_PHOTO_PHO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_REPONSEAVIS_REP" EntityType="Self.T_E_REPONSEAVIS_REP" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_EQUIPEMENTHOTEL_EQH" EntityType="Self.T_J_EQUIPEMENTHOTEL_EQH" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_FAVORI_FAV" EntityType="Self.T_J_FAVORI_FAV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_HOTELSIMILAIRE_HOS" EntityType="Self.T_J_HOTELSIMILAIRE_HOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_LIEUALENTOURAVIS_LAA" EntityType="Self.T_J_LIEUALENTOURAVIS_LAA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_STYLEAVIS_STA" EntityType="Self.T_J_STYLEAVIS_STA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_UTILITE_UTI" EntityType="Self.T_J_UTILITE_UTI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_CATEGORIEHOTEL_CAT" EntityType="Self.T_R_CATEGORIEHOTEL_CAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_EQUIPEMENT_EQU" EntityType="Self.T_R_EQUIPEMENT_EQU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_FOURCHETTEPRIX_PRX" EntityType="Self.T_R_FOURCHETTEPRIX_PRX" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_INDICATIFTEL_IND" EntityType="Self.T_R_INDICATIFTEL_IND" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_LANGUEAVIS_LNG" EntityType="Self.T_R_LANGUEAVIS_LNG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_LIEUALENTOUR_LAL" EntityType="Self.T_R_LIEUALENTOUR_LAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_PAYS_PAY" EntityType="Self.T_R_PAYS_PAY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_PERIODEVISITE_PER" EntityType="Self.T_R_PERIODEVISITE_PER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_STYLE_STY" EntityType="Self.T_R_STYLE_STY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_TYPEVISITE_VIS" EntityType="Self.T_R_TYPEVISITE_VIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_WIFI_WIF" EntityType="Self.T_R_WIFI_WIF" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ABO_IND" Association="Self.FK_ABO_IND">
+            <End Role="T_R_INDICATIFTEL_IND" EntitySet="T_R_INDICATIFTEL_IND" />
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ABO_PAY" Association="Self.FK_ABO_PAY">
+            <End Role="T_R_PAYS_PAY" EntitySet="T_R_PAYS_PAY" />
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALI_HOT" Association="Self.FK_ALI_HOT">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_E_ALIAS_ALI" EntitySet="T_E_ALIAS_ALI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_ABO" Association="Self.FK_AVI_ABO">
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_HOT" Association="Self.FK_AVI_HOT">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_VIS" Association="Self.FK_AVI_VIS">
+            <End Role="T_R_TYPEVISITE_VIS" EntitySet="T_R_TYPEVISITE_VIS" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_WIF" Association="Self.FK_AVI_WIF">
+            <End Role="T_R_WIFI_WIF" EntitySet="T_R_WIFI_WIF" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQH_EQU" Association="Self.FK_EQH_EQU">
+            <End Role="T_R_EQUIPEMENT_EQU" EntitySet="T_R_EQUIPEMENT_EQU" />
+            <End Role="T_J_EQUIPEMENTHOTEL_EQH" EntitySet="T_J_EQUIPEMENTHOTEL_EQH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EQH_HOT" Association="Self.FK_EQH_HOT">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_J_EQUIPEMENTHOTEL_EQH" EntitySet="T_J_EQUIPEMENTHOTEL_EQH" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOS_HOT1" Association="Self.FK_HOS_HOT1">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_J_HOTELSIMILAIRE_HOS" EntitySet="T_J_HOTELSIMILAIRE_HOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOS_HOT2" Association="Self.FK_HOS_HOT2">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_J_HOTELSIMILAIRE_HOS" EntitySet="T_J_HOTELSIMILAIRE_HOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_CAT" Association="Self.FK_HOT_CAT">
+            <End Role="T_R_CATEGORIEHOTEL_CAT" EntitySet="T_R_CATEGORIEHOTEL_CAT" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_IND" Association="Self.FK_HOT_IND">
+            <End Role="T_R_INDICATIFTEL_IND" EntitySet="T_R_INDICATIFTEL_IND" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_PAY" Association="Self.FK_HOT_PAY">
+            <End Role="T_R_PAYS_PAY" EntitySet="T_R_PAYS_PAY" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_PRX" Association="Self.FK_HOT_PRX">
+            <End Role="T_R_FOURCHETTEPRIX_PRX" EntitySet="T_R_FOURCHETTEPRIX_PRX" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LAA_AVI" Association="Self.FK_LAA_AVI">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_J_LIEUALENTOURAVIS_LAA" EntitySet="T_J_LIEUALENTOURAVIS_LAA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LAA_LAL" Association="Self.FK_LAA_LAL">
+            <End Role="T_R_LIEUALENTOUR_LAL" EntitySet="T_R_LIEUALENTOUR_LAL" />
+            <End Role="T_J_LIEUALENTOURAVIS_LAA" EntitySet="T_J_LIEUALENTOURAVIS_LAA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHO_AVI" Association="Self.FK_PHO_AVI">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_E_PHOTO_PHO" EntitySet="T_E_PHOTO_PHO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHO_HOT" Association="Self.FK_PHO_HOT">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_E_PHOTO_PHO" EntitySet="T_E_PHOTO_PHO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STA_AVI" Association="Self.FK_STA_AVI">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_J_STYLEAVIS_STA" EntitySet="T_J_STYLEAVIS_STA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STA_STY" Association="Self.FK_STA_STY">
+            <End Role="T_R_STYLE_STY" EntitySet="T_R_STYLE_STY" />
+            <End Role="T_J_STYLEAVIS_STA" EntitySet="T_J_STYLEAVIS_STA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_AVIS_REFERENCE_T_R_LANG" Association="Self.FK_T_E_AVIS_REFERENCE_T_R_LANG">
+            <End Role="T_R_LANGUEAVIS_LNG" EntitySet="T_R_LANGUEAVIS_LNG" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_AVIS_REFERENCE_T_R_PERI" Association="Self.FK_T_E_AVIS_REFERENCE_T_R_PERI">
+            <End Role="T_R_PERIODEVISITE_PER" EntitySet="T_R_PERIODEVISITE_PER" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_HOTE_REFERENCE_T_E_HOTE" Association="Self.FK_T_E_HOTE_REFERENCE_T_E_HOTE">
+            <End Role="T_E_HOTELIER_HTR" EntitySet="T_E_HOTELIER_HTR" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_HOTE_REFERENCE_T_R_PAYS" Association="Self.FK_T_E_HOTE_REFERENCE_T_R_PAYS">
+            <End Role="T_R_PAYS_PAY" EntitySet="T_R_PAYS_PAY" />
+            <End Role="T_E_HOTELIER_HTR" EntitySet="T_E_HOTELIER_HTR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_REPO_REFERENCE_T_E_AVIS" Association="Self.FK_T_E_REPO_REFERENCE_T_E_AVIS">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_E_REPONSEAVIS_REP" EntitySet="T_E_REPONSEAVIS_REP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_FAVO_REFERENCE_T_E_ABON" Association="Self.FK_T_J_FAVO_REFERENCE_T_E_ABON">
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+            <End Role="T_J_FAVORI_FAV" EntitySet="T_J_FAVORI_FAV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_FAVO_REFERENCE_T_E_HOTE" Association="Self.FK_T_J_FAVO_REFERENCE_T_E_HOTE">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_J_FAVORI_FAV" EntitySet="T_J_FAVORI_FAV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTI_ABO" Association="Self.FK_UTI_ABO">
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+            <End Role="T_J_UTILITE_UTI" EntitySet="T_J_UTILITE_UTI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_UTI_AVI" Association="Self.FK_UTI_AVI">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_J_UTILITE_UTI" EntitySet="T_J_UTILITE_UTI" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SmartTripModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_E_ABONNE_ABO">
+          <Key>
+            <PropertyRef Name="ABO_ID" />
+          </Key>
+          <Property Name="ABO_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ABO_PSEUDO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_MOTPASSE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_MEL" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_PRENOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_ADRLIGNE1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_ADRLIGNE2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ABO_CP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_VILLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_ETAT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAY_ID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ABO_LATITUDE" Type="Single" Nullable="false" />
+          <Property Name="ABO_LONGITUDE" Type="Single" Nullable="false" />
+          <Property Name="IND_INDICATIF" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ABO_TEL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ABO_AEROPORT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_R_INDICATIFTEL_IND" Relationship="Self.FK_ABO_IND" FromRole="T_E_ABONNE_ABO" ToRole="T_R_INDICATIFTEL_IND" />
+          <NavigationProperty Name="T_R_PAYS_PAY" Relationship="Self.FK_ABO_PAY" FromRole="T_E_ABONNE_ABO" ToRole="T_R_PAYS_PAY" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_AVI_ABO" FromRole="T_E_ABONNE_ABO" ToRole="T_E_AVIS_AVI" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.T_J_FAVORI_FAV" FromRole="T_E_ABONNE_ABO" ToRole="T_E_HOTEL_HOT" />
+          <NavigationProperty Name="T_E_AVIS_AVI1" Relationship="Self.T_J_UTILITE_UTI" FromRole="T_E_ABONNE_ABO" ToRole="T_E_AVIS_AVI" />
+        </EntityType>
+        <EntityType Name="T_E_ALIAS_ALI">
+          <Key>
+            <PropertyRef Name="ALI_ID" />
+          </Key>
+          <Property Name="ALI_ID" Type="Decimal" Precision="7" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOT_ID" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="ALI_INTITULE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_ALI_HOT" FromRole="T_E_ALIAS_ALI" ToRole="T_E_HOTEL_HOT" />
+        </EntityType>
+        <EntityType Name="T_E_AVIS_AVI">
+          <Key>
+            <PropertyRef Name="AVI_ID" />
+          </Key>
+          <Property Name="AVI_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ABO_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="HOT_ID" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="VIS_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="PER_ID" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="WIF_ID" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="LNG_ID" Type="Decimal" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="AVI_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="AVI_TITRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AVI_DETAIL" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AVI_NOTEGLOBALE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_NOTECHAMBRES" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_NOTESERVICE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_NOTEPROPRETE" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="AVI_CONSEIL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_E_ABONNE_ABO" Relationship="Self.FK_AVI_ABO" FromRole="T_E_AVIS_AVI" ToRole="T_E_ABONNE_ABO" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_AVI_HOT" FromRole="T_E_AVIS_AVI" ToRole="T_E_HOTEL_HOT" />
+          <NavigationProperty Name="T_R_TYPEVISITE_VIS" Relationship="Self.FK_AVI_VIS" FromRole="T_E_AVIS_AVI" ToRole="T_R_TYPEVISITE_VIS" />
+          <NavigationProperty Name="T_R_WIFI_WIF" Relationship="Self.FK_AVI_WIF" FromRole="T_E_AVIS_AVI" ToRole="T_R_WIFI_WIF" />
+          <NavigationProperty Name="T_E_PHOTO_PHO" Relationship="Self.FK_PHO_AVI" FromRole="T_E_AVIS_AVI" ToRole="T_E_PHOTO_PHO" />
+          <NavigationProperty Name="T_J_STYLEAVIS_STA" Relationship="Self.FK_STA_AVI" FromRole="T_E_AVIS_AVI" ToRole="T_J_STYLEAVIS_STA" />
+          <NavigationProperty Name="T_R_LANGUEAVIS_LNG" Relationship="Self.FK_T_E_AVIS_REFERENCE_T_R_LANG" FromRole="T_E_AVIS_AVI" ToRole="T_R_LANGUEAVIS_LNG" />
+          <NavigationProperty Name="T_R_PERIODEVISITE_PER" Relationship="Self.FK_T_E_AVIS_REFERENCE_T_R_PERI" FromRole="T_E_AVIS_AVI" ToRole="T_R_PERIODEVISITE_PER" />
+          <NavigationProperty Name="T_E_REPONSEAVIS_REP" Relationship="Self.FK_T_E_REPO_REFERENCE_T_E_AVIS" FromRole="T_E_AVIS_AVI" ToRole="T_E_REPONSEAVIS_REP" />
+          <NavigationProperty Name="T_R_LIEUALENTOUR_LAL" Relationship="Self.T_J_LIEUALENTOURAVIS_LAA" FromRole="T_E_AVIS_AVI" ToRole="T_R_LIEUALENTOUR_LAL" />
+          <NavigationProperty Name="T_E_ABONNE_ABO1" Relationship="Self.T_J_UTILITE_UTI" FromRole="T_E_AVIS_AVI" ToRole="T_E_ABONNE_ABO" />
+        </EntityType>
+        <EntityType Name="T_E_HOTEL_HOT">
+          <Key>
+            <PropertyRef Name="HOT_ID" />
+          </Key>
+          <Property Name="HOT_ID" Type="Decimal" Precision="6" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HTR_ID" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="PRX_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="HOT_NOM" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOT_DESCRIPTION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="HOT_ADRLIGNE1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOT_ADRLIGNE2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HOT_CP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOT_VILLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOT_ETAT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAY_ID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="HOT_LATITUDE" Type="Single" Nullable="false" />
+          <Property Name="HOT_LONGITUDE" Type="Single" Nullable="false" />
+          <Property Name="IND_INDICATIF" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="CAT_NBETOILES" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <Property Name="HOT_TEL" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOT_MEL" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HOT_SITEWEB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HOT_NBCHAMBRES" Type="Decimal" Precision="3" Scale="0" />
+          <NavigationProperty Name="T_E_ALIAS_ALI" Relationship="Self.FK_ALI_HOT" FromRole="T_E_HOTEL_HOT" ToRole="T_E_ALIAS_ALI" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_AVI_HOT" FromRole="T_E_HOTEL_HOT" ToRole="T_E_AVIS_AVI" />
+          <NavigationProperty Name="T_R_CATEGORIEHOTEL_CAT" Relationship="Self.FK_HOT_CAT" FromRole="T_E_HOTEL_HOT" ToRole="T_R_CATEGORIEHOTEL_CAT" />
+          <NavigationProperty Name="T_R_INDICATIFTEL_IND" Relationship="Self.FK_HOT_IND" FromRole="T_E_HOTEL_HOT" ToRole="T_R_INDICATIFTEL_IND" />
+          <NavigationProperty Name="T_R_PAYS_PAY" Relationship="Self.FK_HOT_PAY" FromRole="T_E_HOTEL_HOT" ToRole="T_R_PAYS_PAY" />
+          <NavigationProperty Name="T_R_FOURCHETTEPRIX_PRX" Relationship="Self.FK_HOT_PRX" FromRole="T_E_HOTEL_HOT" ToRole="T_R_FOURCHETTEPRIX_PRX" />
+          <NavigationProperty Name="T_E_PHOTO_PHO" Relationship="Self.FK_PHO_HOT" FromRole="T_E_HOTEL_HOT" ToRole="T_E_PHOTO_PHO" />
+          <NavigationProperty Name="T_E_HOTELIER_HTR" Relationship="Self.FK_T_E_HOTE_REFERENCE_T_E_HOTE" FromRole="T_E_HOTEL_HOT" ToRole="T_E_HOTELIER_HTR" />
+          <NavigationProperty Name="T_R_EQUIPEMENT_EQU" Relationship="Self.T_J_EQUIPEMENTHOTEL_EQH" FromRole="T_E_HOTEL_HOT" ToRole="T_R_EQUIPEMENT_EQU" />
+          <NavigationProperty Name="T_E_ABONNE_ABO" Relationship="Self.T_J_FAVORI_FAV" FromRole="T_E_HOTEL_HOT" ToRole="T_E_ABONNE_ABO" />
+          <NavigationProperty Name="T_E_HOTEL_HOT1" Relationship="Self.T_J_HOTELSIMILAIRE_HOS" FromRole="T_E_HOTEL_HOT" ToRole="T_E_HOTEL_HOT1" />
+          <NavigationProperty Name="T_E_HOTEL_HOT2" Relationship="Self.T_J_HOTELSIMILAIRE_HOS" FromRole="T_E_HOTEL_HOT1" ToRole="T_E_HOTEL_HOT" />
+        </EntityType>
+        <EntityType Name="T_E_HOTELIER_HTR">
+          <Key>
+            <PropertyRef Name="HTR_ID" />
+          </Key>
+          <Property Name="HTR_ID" Type="Decimal" Precision="6" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HTR_MEL" Type="String" MaxLength="80" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTR_MOTPASSE" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTR_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTR_PRENOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTR_ADRLIGNE1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTR_ADRLIGNE2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HTR_CP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTR_VILLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="HTR_ETAT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAY_ID" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_T_E_HOTE_REFERENCE_T_E_HOTE" FromRole="T_E_HOTELIER_HTR" ToRole="T_E_HOTEL_HOT" />
+          <NavigationProperty Name="T_R_PAYS_PAY" Relationship="Self.FK_T_E_HOTE_REFERENCE_T_R_PAYS" FromRole="T_E_HOTELIER_HTR" ToRole="T_R_PAYS_PAY" />
+        </EntityType>
+        <EntityType Name="T_E_PHOTO_PHO">
+          <Key>
+            <PropertyRef Name="PHO_ID" />
+          </Key>
+          <Property Name="PHO_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HOT_ID" Type="Decimal" Precision="6" Scale="0" />
+          <Property Name="AVI_ID" Type="Decimal" Precision="10" Scale="0" />
+          <Property Name="PHO_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_PHO_AVI" FromRole="T_E_PHOTO_PHO" ToRole="T_E_AVIS_AVI" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_PHO_HOT" FromRole="T_E_PHOTO_PHO" ToRole="T_E_HOTEL_HOT" />
+        </EntityType>
+        <EntityType Name="T_E_REPONSEAVIS_REP">
+          <Key>
+            <PropertyRef Name="AVI_ID" />
+          </Key>
+          <Property Name="AVI_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="REP_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="REP_COMMENTAIRE" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_T_E_REPO_REFERENCE_T_E_AVIS" FromRole="T_E_REPONSEAVIS_REP" ToRole="T_E_AVIS_AVI" />
+        </EntityType>
+        <EntityType Name="T_J_STYLEAVIS_STA">
+          <Key>
+            <PropertyRef Name="AVI_ID" />
+            <PropertyRef Name="STY_ID" />
+          </Key>
+          <Property Name="AVI_ID" Type="Decimal" Precision="10" Scale="0" Nullable="false" />
+          <Property Name="STY_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="STA_VALEUR" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_STA_AVI" FromRole="T_J_STYLEAVIS_STA" ToRole="T_E_AVIS_AVI" />
+          <NavigationProperty Name="T_R_STYLE_STY" Relationship="Self.FK_STA_STY" FromRole="T_J_STYLEAVIS_STA" ToRole="T_R_STYLE_STY" />
+        </EntityType>
+        <EntityType Name="T_R_CATEGORIEHOTEL_CAT">
+          <Key>
+            <PropertyRef Name="CAT_NBETOILES" />
+          </Key>
+          <Property Name="CAT_NBETOILES" Type="Decimal" Precision="1" Scale="0" Nullable="false" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_HOT_CAT" FromRole="T_R_CATEGORIEHOTEL_CAT" ToRole="T_E_HOTEL_HOT" />
+        </EntityType>
+        <EntityType Name="T_R_EQUIPEMENT_EQU">
+          <Key>
+            <PropertyRef Name="EQU_ID" />
+          </Key>
+          <Property Name="EQU_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EQU_LIBELLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.T_J_EQUIPEMENTHOTEL_EQH" FromRole="T_R_EQUIPEMENT_EQU" ToRole="T_E_HOTEL_HOT" />
+        </EntityType>
+        <EntityType Name="T_R_FOURCHETTEPRIX_PRX">
+          <Key>
+            <PropertyRef Name="PRX_ID" />
+          </Key>
+          <Property Name="PRX_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PRX_FOURCHETTE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_HOT_PRX" FromRole="T_R_FOURCHETTEPRIX_PRX" ToRole="T_E_HOTEL_HOT" />
+        </EntityType>
+        <EntityType Name="T_R_INDICATIFTEL_IND">
+          <Key>
+            <PropertyRef Name="IND_INDICATIF" />
+          </Key>
+          <Property Name="IND_INDICATIF" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <NavigationProperty Name="T_E_ABONNE_ABO" Relationship="Self.FK_ABO_IND" FromRole="T_R_INDICATIFTEL_IND" ToRole="T_E_ABONNE_ABO" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_HOT_IND" FromRole="T_R_INDICATIFTEL_IND" ToRole="T_E_HOTEL_HOT" />
+        </EntityType>
+        <EntityType Name="T_R_LANGUEAVIS_LNG">
+          <Key>
+            <PropertyRef Name="LNG_ID" />
+          </Key>
+          <Property Name="LNG_ID" Type="Decimal" Precision="3" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LNG_LIBELLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_T_E_AVIS_REFERENCE_T_R_LANG" FromRole="T_R_LANGUEAVIS_LNG" ToRole="T_E_AVIS_AVI" />
+        </EntityType>
+        <EntityType Name="T_R_LIEUALENTOUR_LAL">
+          <Key>
+            <PropertyRef Name="LAL_ID" />
+          </Key>
+          <Property Name="LAL_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LAL_LIEU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.T_J_LIEUALENTOURAVIS_LAA" FromRole="T_R_LIEUALENTOUR_LAL" ToRole="T_E_AVIS_AVI" />
+        </EntityType>
+        <EntityType Name="T_R_PAYS_PAY">
+          <Key>
+            <PropertyRef Name="PAY_ID" />
+          </Key>
+          <Property Name="PAY_ID" Type="Decimal" Precision="4" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAY_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_ABONNE_ABO" Relationship="Self.FK_ABO_PAY" FromRole="T_R_PAYS_PAY" ToRole="T_E_ABONNE_ABO" />
+          <NavigationProperty Name="T_E_HOTEL_HOT" Relationship="Self.FK_HOT_PAY" FromRole="T_R_PAYS_PAY" ToRole="T_E_HOTEL_HOT" />
+          <NavigationProperty Name="T_E_HOTELIER_HTR" Relationship="Self.FK_T_E_HOTE_REFERENCE_T_R_PAYS" FromRole="T_R_PAYS_PAY" ToRole="T_E_HOTELIER_HTR" />
+        </EntityType>
+        <EntityType Name="T_R_PERIODEVISITE_PER">
+          <Key>
+            <PropertyRef Name="PER_ID" />
+          </Key>
+          <Property Name="PER_ID" Type="Decimal" Precision="3" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PER_MOIS" Type="Decimal" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="PER_ANNEE" Type="Decimal" Precision="4" Scale="0" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_T_E_AVIS_REFERENCE_T_R_PERI" FromRole="T_R_PERIODEVISITE_PER" ToRole="T_E_AVIS_AVI" />
+        </EntityType>
+        <EntityType Name="T_R_STYLE_STY">
+          <Key>
+            <PropertyRef Name="STY_ID" />
+          </Key>
+          <Property Name="STY_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="STY_LIBELLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_J_STYLEAVIS_STA" Relationship="Self.FK_STA_STY" FromRole="T_R_STYLE_STY" ToRole="T_J_STYLEAVIS_STA" />
+        </EntityType>
+        <EntityType Name="T_R_TYPEVISITE_VIS">
+          <Key>
+            <PropertyRef Name="VIS_ID" />
+          </Key>
+          <Property Name="VIS_ID" Type="Decimal" Precision="2" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VIS_LIBELLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_AVI_VIS" FromRole="T_R_TYPEVISITE_VIS" ToRole="T_E_AVIS_AVI" />
+        </EntityType>
+        <EntityType Name="T_R_WIFI_WIF">
+          <Key>
+            <PropertyRef Name="WIF_ID" />
+          </Key>
+          <Property Name="WIF_ID" Type="Decimal" Precision="1" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WIF_LIBELLE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_AVIS_AVI" Relationship="Self.FK_AVI_WIF" FromRole="T_R_WIFI_WIF" ToRole="T_E_AVIS_AVI" />
+        </EntityType>
+        <Association Name="FK_ABO_IND">
+          <End Role="T_R_INDICATIFTEL_IND" Type="Self.T_R_INDICATIFTEL_IND" Multiplicity="1" />
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_INDICATIFTEL_IND">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Principal>
+            <Dependent Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ABO_PAY">
+          <End Role="T_R_PAYS_PAY" Type="Self.T_R_PAYS_PAY" Multiplicity="1" />
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PAYS_PAY">
+              <PropertyRef Name="PAY_ID" />
+            </Principal>
+            <Dependent Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="PAY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_ABO">
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_ABONNE_ABO">
+              <PropertyRef Name="ABO_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="ABO_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ALI_HOT">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_E_ALIAS_ALI" Type="Self.T_E_ALIAS_ALI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_E_ALIAS_ALI">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_HOT">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_VIS">
+          <End Role="T_R_TYPEVISITE_VIS" Type="Self.T_R_TYPEVISITE_VIS" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_TYPEVISITE_VIS">
+              <PropertyRef Name="VIS_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="VIS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AVI_WIF">
+          <End Role="T_R_WIFI_WIF" Type="Self.T_R_WIFI_WIF" Multiplicity="0..1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_WIFI_WIF">
+              <PropertyRef Name="WIF_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="WIF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHO_AVI">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="0..1" />
+          <End Role="T_E_PHOTO_PHO" Type="Self.T_E_PHOTO_PHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_E_PHOTO_PHO">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STA_AVI">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="1" />
+          <End Role="T_J_STYLEAVIS_STA" Type="Self.T_J_STYLEAVIS_STA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_J_STYLEAVIS_STA">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_AVIS_REFERENCE_T_R_LANG">
+          <End Role="T_R_LANGUEAVIS_LNG" Type="Self.T_R_LANGUEAVIS_LNG" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_LANGUEAVIS_LNG">
+              <PropertyRef Name="LNG_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="LNG_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_AVIS_REFERENCE_T_R_PERI">
+          <End Role="T_R_PERIODEVISITE_PER" Type="Self.T_R_PERIODEVISITE_PER" Multiplicity="1" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PERIODEVISITE_PER">
+              <PropertyRef Name="PER_ID" />
+            </Principal>
+            <Dependent Role="T_E_AVIS_AVI">
+              <PropertyRef Name="PER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_REPO_REFERENCE_T_E_AVIS">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="1" />
+          <End Role="T_E_REPONSEAVIS_REP" Type="Self.T_E_REPONSEAVIS_REP" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_AVIS_AVI">
+              <PropertyRef Name="AVI_ID" />
+            </Principal>
+            <Dependent Role="T_E_REPONSEAVIS_REP">
+              <PropertyRef Name="AVI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_CAT">
+          <End Role="T_R_CATEGORIEHOTEL_CAT" Type="Self.T_R_CATEGORIEHOTEL_CAT" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CATEGORIEHOTEL_CAT">
+              <PropertyRef Name="CAT_NBETOILES" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="CAT_NBETOILES" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_IND">
+          <End Role="T_R_INDICATIFTEL_IND" Type="Self.T_R_INDICATIFTEL_IND" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_INDICATIFTEL_IND">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="IND_INDICATIF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_PAY">
+          <End Role="T_R_PAYS_PAY" Type="Self.T_R_PAYS_PAY" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PAYS_PAY">
+              <PropertyRef Name="PAY_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="PAY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOT_PRX">
+          <End Role="T_R_FOURCHETTEPRIX_PRX" Type="Self.T_R_FOURCHETTEPRIX_PRX" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_FOURCHETTEPRIX_PRX">
+              <PropertyRef Name="PRX_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="PRX_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PHO_HOT">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="0..1" />
+          <End Role="T_E_PHOTO_PHO" Type="Self.T_E_PHOTO_PHO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HOT_ID" />
+            </Principal>
+            <Dependent Role="T_E_PHOTO_PHO">
+              <PropertyRef Name="HOT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_HOTE_REFERENCE_T_E_HOTE">
+          <End Role="T_E_HOTELIER_HTR" Type="Self.T_E_HOTELIER_HTR" Multiplicity="1" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_HOTELIER_HTR">
+              <PropertyRef Name="HTR_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTEL_HOT">
+              <PropertyRef Name="HTR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_HOTE_REFERENCE_T_R_PAYS">
+          <End Role="T_R_PAYS_PAY" Type="Self.T_R_PAYS_PAY" Multiplicity="1" />
+          <End Role="T_E_HOTELIER_HTR" Type="Self.T_E_HOTELIER_HTR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_PAYS_PAY">
+              <PropertyRef Name="PAY_ID" />
+            </Principal>
+            <Dependent Role="T_E_HOTELIER_HTR">
+              <PropertyRef Name="PAY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_STA_STY">
+          <End Role="T_R_STYLE_STY" Type="Self.T_R_STYLE_STY" Multiplicity="1" />
+          <End Role="T_J_STYLEAVIS_STA" Type="Self.T_J_STYLEAVIS_STA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_STYLE_STY">
+              <PropertyRef Name="STY_ID" />
+            </Principal>
+            <Dependent Role="T_J_STYLEAVIS_STA">
+              <PropertyRef Name="STY_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_J_EQUIPEMENTHOTEL_EQH">
+          <End Role="T_R_EQUIPEMENT_EQU" Type="Self.T_R_EQUIPEMENT_EQU" Multiplicity="*" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+        </Association>
+        <Association Name="T_J_FAVORI_FAV">
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="*" />
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+        </Association>
+        <Association Name="T_J_HOTELSIMILAIRE_HOS">
+          <End Role="T_E_HOTEL_HOT" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+          <End Role="T_E_HOTEL_HOT1" Type="Self.T_E_HOTEL_HOT" Multiplicity="*" />
+        </Association>
+        <Association Name="T_J_LIEUALENTOURAVIS_LAA">
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+          <End Role="T_R_LIEUALENTOUR_LAL" Type="Self.T_R_LIEUALENTOUR_LAL" Multiplicity="*" />
+        </Association>
+        <Association Name="T_J_UTILITE_UTI">
+          <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="*" />
+          <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="SmartTripEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_E_ABONNE_ABO" EntityType="Self.T_E_ABONNE_ABO" />
+          <EntitySet Name="T_E_ALIAS_ALI" EntityType="Self.T_E_ALIAS_ALI" />
+          <EntitySet Name="T_E_AVIS_AVI" EntityType="Self.T_E_AVIS_AVI" />
+          <EntitySet Name="T_E_HOTEL_HOT" EntityType="Self.T_E_HOTEL_HOT" />
+          <EntitySet Name="T_E_HOTELIER_HTR" EntityType="Self.T_E_HOTELIER_HTR" />
+          <EntitySet Name="T_E_PHOTO_PHO" EntityType="Self.T_E_PHOTO_PHO" />
+          <EntitySet Name="T_E_REPONSEAVIS_REP" EntityType="Self.T_E_REPONSEAVIS_REP" />
+          <EntitySet Name="T_J_STYLEAVIS_STA" EntityType="Self.T_J_STYLEAVIS_STA" />
+          <EntitySet Name="T_R_CATEGORIEHOTEL_CAT" EntityType="Self.T_R_CATEGORIEHOTEL_CAT" />
+          <EntitySet Name="T_R_EQUIPEMENT_EQU" EntityType="Self.T_R_EQUIPEMENT_EQU" />
+          <EntitySet Name="T_R_FOURCHETTEPRIX_PRX" EntityType="Self.T_R_FOURCHETTEPRIX_PRX" />
+          <EntitySet Name="T_R_INDICATIFTEL_IND" EntityType="Self.T_R_INDICATIFTEL_IND" />
+          <EntitySet Name="T_R_LANGUEAVIS_LNG" EntityType="Self.T_R_LANGUEAVIS_LNG" />
+          <EntitySet Name="T_R_LIEUALENTOUR_LAL" EntityType="Self.T_R_LIEUALENTOUR_LAL" />
+          <EntitySet Name="T_R_PAYS_PAY" EntityType="Self.T_R_PAYS_PAY" />
+          <EntitySet Name="T_R_PERIODEVISITE_PER" EntityType="Self.T_R_PERIODEVISITE_PER" />
+          <EntitySet Name="T_R_STYLE_STY" EntityType="Self.T_R_STYLE_STY" />
+          <EntitySet Name="T_R_TYPEVISITE_VIS" EntityType="Self.T_R_TYPEVISITE_VIS" />
+          <EntitySet Name="T_R_WIFI_WIF" EntityType="Self.T_R_WIFI_WIF" />
+          <AssociationSet Name="FK_ABO_IND" Association="Self.FK_ABO_IND">
+            <End Role="T_R_INDICATIFTEL_IND" EntitySet="T_R_INDICATIFTEL_IND" />
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ABO_PAY" Association="Self.FK_ABO_PAY">
+            <End Role="T_R_PAYS_PAY" EntitySet="T_R_PAYS_PAY" />
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_ABO" Association="Self.FK_AVI_ABO">
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ALI_HOT" Association="Self.FK_ALI_HOT">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_E_ALIAS_ALI" EntitySet="T_E_ALIAS_ALI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_HOT" Association="Self.FK_AVI_HOT">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_VIS" Association="Self.FK_AVI_VIS">
+            <End Role="T_R_TYPEVISITE_VIS" EntitySet="T_R_TYPEVISITE_VIS" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AVI_WIF" Association="Self.FK_AVI_WIF">
+            <End Role="T_R_WIFI_WIF" EntitySet="T_R_WIFI_WIF" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHO_AVI" Association="Self.FK_PHO_AVI">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_E_PHOTO_PHO" EntitySet="T_E_PHOTO_PHO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STA_AVI" Association="Self.FK_STA_AVI">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_J_STYLEAVIS_STA" EntitySet="T_J_STYLEAVIS_STA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_AVIS_REFERENCE_T_R_LANG" Association="Self.FK_T_E_AVIS_REFERENCE_T_R_LANG">
+            <End Role="T_R_LANGUEAVIS_LNG" EntitySet="T_R_LANGUEAVIS_LNG" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_AVIS_REFERENCE_T_R_PERI" Association="Self.FK_T_E_AVIS_REFERENCE_T_R_PERI">
+            <End Role="T_R_PERIODEVISITE_PER" EntitySet="T_R_PERIODEVISITE_PER" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_REPO_REFERENCE_T_E_AVIS" Association="Self.FK_T_E_REPO_REFERENCE_T_E_AVIS">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_E_REPONSEAVIS_REP" EntitySet="T_E_REPONSEAVIS_REP" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_CAT" Association="Self.FK_HOT_CAT">
+            <End Role="T_R_CATEGORIEHOTEL_CAT" EntitySet="T_R_CATEGORIEHOTEL_CAT" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_IND" Association="Self.FK_HOT_IND">
+            <End Role="T_R_INDICATIFTEL_IND" EntitySet="T_R_INDICATIFTEL_IND" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_PAY" Association="Self.FK_HOT_PAY">
+            <End Role="T_R_PAYS_PAY" EntitySet="T_R_PAYS_PAY" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOT_PRX" Association="Self.FK_HOT_PRX">
+            <End Role="T_R_FOURCHETTEPRIX_PRX" EntitySet="T_R_FOURCHETTEPRIX_PRX" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PHO_HOT" Association="Self.FK_PHO_HOT">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_E_PHOTO_PHO" EntitySet="T_E_PHOTO_PHO" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_HOTE_REFERENCE_T_E_HOTE" Association="Self.FK_T_E_HOTE_REFERENCE_T_E_HOTE">
+            <End Role="T_E_HOTELIER_HTR" EntitySet="T_E_HOTELIER_HTR" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_HOTE_REFERENCE_T_R_PAYS" Association="Self.FK_T_E_HOTE_REFERENCE_T_R_PAYS">
+            <End Role="T_R_PAYS_PAY" EntitySet="T_R_PAYS_PAY" />
+            <End Role="T_E_HOTELIER_HTR" EntitySet="T_E_HOTELIER_HTR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_STA_STY" Association="Self.FK_STA_STY">
+            <End Role="T_R_STYLE_STY" EntitySet="T_R_STYLE_STY" />
+            <End Role="T_J_STYLEAVIS_STA" EntitySet="T_J_STYLEAVIS_STA" />
+          </AssociationSet>
+          <AssociationSet Name="T_J_EQUIPEMENTHOTEL_EQH" Association="Self.T_J_EQUIPEMENTHOTEL_EQH">
+            <End Role="T_R_EQUIPEMENT_EQU" EntitySet="T_R_EQUIPEMENT_EQU" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="T_J_FAVORI_FAV" Association="Self.T_J_FAVORI_FAV">
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="T_J_HOTELSIMILAIRE_HOS" Association="Self.T_J_HOTELSIMILAIRE_HOS">
+            <End Role="T_E_HOTEL_HOT" EntitySet="T_E_HOTEL_HOT" />
+            <End Role="T_E_HOTEL_HOT1" EntitySet="T_E_HOTEL_HOT" />
+          </AssociationSet>
+          <AssociationSet Name="T_J_LIEUALENTOURAVIS_LAA" Association="Self.T_J_LIEUALENTOURAVIS_LAA">
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+            <End Role="T_R_LIEUALENTOUR_LAL" EntitySet="T_R_LIEUALENTOUR_LAL" />
+          </AssociationSet>
+          <AssociationSet Name="T_J_UTILITE_UTI" Association="Self.T_J_UTILITE_UTI">
+            <End Role="T_E_ABONNE_ABO" EntitySet="T_E_ABONNE_ABO" />
+            <End Role="T_E_AVIS_AVI" EntitySet="T_E_AVIS_AVI" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SmartTripModelStoreContainer" CdmEntityContainer="SmartTripEntities">
+          <EntitySetMapping Name="T_E_ABONNE_ABO">
+            <EntityTypeMapping TypeName="SmartTripModel.T_E_ABONNE_ABO">
+              <MappingFragment StoreEntitySet="T_E_ABONNE_ABO">
+                <ScalarProperty Name="ABO_ID" ColumnName="ABO_ID" />
+                <ScalarProperty Name="ABO_PSEUDO" ColumnName="ABO_PSEUDO" />
+                <ScalarProperty Name="ABO_MOTPASSE" ColumnName="ABO_MOTPASSE" />
+                <ScalarProperty Name="ABO_MEL" ColumnName="ABO_MEL" />
+                <ScalarProperty Name="ABO_NOM" ColumnName="ABO_NOM" />
+                <ScalarProperty Name="ABO_PRENOM" ColumnName="ABO_PRENOM" />
+                <ScalarProperty Name="ABO_ADRLIGNE1" ColumnName="ABO_ADRLIGNE1" />
+                <ScalarProperty Name="ABO_ADRLIGNE2" ColumnName="ABO_ADRLIGNE2" />
+                <ScalarProperty Name="ABO_CP" ColumnName="ABO_CP" />
+                <ScalarProperty Name="ABO_VILLE" ColumnName="ABO_VILLE" />
+                <ScalarProperty Name="ABO_ETAT" ColumnName="ABO_ETAT" />
+                <ScalarProperty Name="PAY_ID" ColumnName="PAY_ID" />
+                <ScalarProperty Name="ABO_LATITUDE" ColumnName="ABO_LATITUDE" />
+                <ScalarProperty Name="ABO_LONGITUDE" ColumnName="ABO_LONGITUDE" />
+                <ScalarProperty Name="IND_INDICATIF" ColumnName="IND_INDICATIF" />
+                <ScalarProperty Name="ABO_TEL" ColumnName="ABO_TEL" />
+                <ScalarProperty Name="ABO_AEROPORT" ColumnName="ABO_AEROPORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_ALIAS_ALI">
+            <EntityTypeMapping TypeName="SmartTripModel.T_E_ALIAS_ALI">
+              <MappingFragment StoreEntitySet="T_E_ALIAS_ALI">
+                <ScalarProperty Name="ALI_ID" ColumnName="ALI_ID" />
+                <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+                <ScalarProperty Name="ALI_INTITULE" ColumnName="ALI_INTITULE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_AVIS_AVI">
+            <EntityTypeMapping TypeName="SmartTripModel.T_E_AVIS_AVI">
+              <MappingFragment StoreEntitySet="T_E_AVIS_AVI">
+                <ScalarProperty Name="AVI_ID" ColumnName="AVI_ID" />
+                <ScalarProperty Name="ABO_ID" ColumnName="ABO_ID" />
+                <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+                <ScalarProperty Name="VIS_ID" ColumnName="VIS_ID" />
+                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+                <ScalarProperty Name="WIF_ID" ColumnName="WIF_ID" />
+                <ScalarProperty Name="LNG_ID" ColumnName="LNG_ID" />
+                <ScalarProperty Name="AVI_DATE" ColumnName="AVI_DATE" />
+                <ScalarProperty Name="AVI_TITRE" ColumnName="AVI_TITRE" />
+                <ScalarProperty Name="AVI_DETAIL" ColumnName="AVI_DETAIL" />
+                <ScalarProperty Name="AVI_NOTEGLOBALE" ColumnName="AVI_NOTEGLOBALE" />
+                <ScalarProperty Name="AVI_NOTECHAMBRES" ColumnName="AVI_NOTECHAMBRES" />
+                <ScalarProperty Name="AVI_NOTESERVICE" ColumnName="AVI_NOTESERVICE" />
+                <ScalarProperty Name="AVI_NOTEPROPRETE" ColumnName="AVI_NOTEPROPRETE" />
+                <ScalarProperty Name="AVI_CONSEIL" ColumnName="AVI_CONSEIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_HOTEL_HOT">
+            <EntityTypeMapping TypeName="SmartTripModel.T_E_HOTEL_HOT">
+              <MappingFragment StoreEntitySet="T_E_HOTEL_HOT">
+                <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+                <ScalarProperty Name="HTR_ID" ColumnName="HTR_ID" />
+                <ScalarProperty Name="PRX_ID" ColumnName="PRX_ID" />
+                <ScalarProperty Name="HOT_NOM" ColumnName="HOT_NOM" />
+                <ScalarProperty Name="HOT_DESCRIPTION" ColumnName="HOT_DESCRIPTION" />
+                <ScalarProperty Name="HOT_ADRLIGNE1" ColumnName="HOT_ADRLIGNE1" />
+                <ScalarProperty Name="HOT_ADRLIGNE2" ColumnName="HOT_ADRLIGNE2" />
+                <ScalarProperty Name="HOT_CP" ColumnName="HOT_CP" />
+                <ScalarProperty Name="HOT_VILLE" ColumnName="HOT_VILLE" />
+                <ScalarProperty Name="HOT_ETAT" ColumnName="HOT_ETAT" />
+                <ScalarProperty Name="PAY_ID" ColumnName="PAY_ID" />
+                <ScalarProperty Name="HOT_LATITUDE" ColumnName="HOT_LATITUDE" />
+                <ScalarProperty Name="HOT_LONGITUDE" ColumnName="HOT_LONGITUDE" />
+                <ScalarProperty Name="IND_INDICATIF" ColumnName="IND_INDICATIF" />
+                <ScalarProperty Name="CAT_NBETOILES" ColumnName="CAT_NBETOILES" />
+                <ScalarProperty Name="HOT_TEL" ColumnName="HOT_TEL" />
+                <ScalarProperty Name="HOT_MEL" ColumnName="HOT_MEL" />
+                <ScalarProperty Name="HOT_SITEWEB" ColumnName="HOT_SITEWEB" />
+                <ScalarProperty Name="HOT_NBCHAMBRES" ColumnName="HOT_NBCHAMBRES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_HOTELIER_HTR">
+            <EntityTypeMapping TypeName="SmartTripModel.T_E_HOTELIER_HTR">
+              <MappingFragment StoreEntitySet="T_E_HOTELIER_HTR">
+                <ScalarProperty Name="HTR_ID" ColumnName="HTR_ID" />
+                <ScalarProperty Name="HTR_MEL" ColumnName="HTR_MEL" />
+                <ScalarProperty Name="HTR_MOTPASSE" ColumnName="HTR_MOTPASSE" />
+                <ScalarProperty Name="HTR_NOM" ColumnName="HTR_NOM" />
+                <ScalarProperty Name="HTR_PRENOM" ColumnName="HTR_PRENOM" />
+                <ScalarProperty Name="HTR_ADRLIGNE1" ColumnName="HTR_ADRLIGNE1" />
+                <ScalarProperty Name="HTR_ADRLIGNE2" ColumnName="HTR_ADRLIGNE2" />
+                <ScalarProperty Name="HTR_CP" ColumnName="HTR_CP" />
+                <ScalarProperty Name="HTR_VILLE" ColumnName="HTR_VILLE" />
+                <ScalarProperty Name="HTR_ETAT" ColumnName="HTR_ETAT" />
+                <ScalarProperty Name="PAY_ID" ColumnName="PAY_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_PHOTO_PHO">
+            <EntityTypeMapping TypeName="SmartTripModel.T_E_PHOTO_PHO">
+              <MappingFragment StoreEntitySet="T_E_PHOTO_PHO">
+                <ScalarProperty Name="PHO_ID" ColumnName="PHO_ID" />
+                <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+                <ScalarProperty Name="AVI_ID" ColumnName="AVI_ID" />
+                <ScalarProperty Name="PHO_URL" ColumnName="PHO_URL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_REPONSEAVIS_REP">
+            <EntityTypeMapping TypeName="SmartTripModel.T_E_REPONSEAVIS_REP">
+              <MappingFragment StoreEntitySet="T_E_REPONSEAVIS_REP">
+                <ScalarProperty Name="AVI_ID" ColumnName="AVI_ID" />
+                <ScalarProperty Name="REP_DATE" ColumnName="REP_DATE" />
+                <ScalarProperty Name="REP_COMMENTAIRE" ColumnName="REP_COMMENTAIRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_J_STYLEAVIS_STA">
+            <EntityTypeMapping TypeName="SmartTripModel.T_J_STYLEAVIS_STA">
+              <MappingFragment StoreEntitySet="T_J_STYLEAVIS_STA">
+                <ScalarProperty Name="AVI_ID" ColumnName="AVI_ID" />
+                <ScalarProperty Name="STY_ID" ColumnName="STY_ID" />
+                <ScalarProperty Name="STA_VALEUR" ColumnName="STA_VALEUR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_CATEGORIEHOTEL_CAT">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_CATEGORIEHOTEL_CAT">
+              <MappingFragment StoreEntitySet="T_R_CATEGORIEHOTEL_CAT">
+                <ScalarProperty Name="CAT_NBETOILES" ColumnName="CAT_NBETOILES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_EQUIPEMENT_EQU">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_EQUIPEMENT_EQU">
+              <MappingFragment StoreEntitySet="T_R_EQUIPEMENT_EQU">
+                <ScalarProperty Name="EQU_ID" ColumnName="EQU_ID" />
+                <ScalarProperty Name="EQU_LIBELLE" ColumnName="EQU_LIBELLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_FOURCHETTEPRIX_PRX">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_FOURCHETTEPRIX_PRX">
+              <MappingFragment StoreEntitySet="T_R_FOURCHETTEPRIX_PRX">
+                <ScalarProperty Name="PRX_ID" ColumnName="PRX_ID" />
+                <ScalarProperty Name="PRX_FOURCHETTE" ColumnName="PRX_FOURCHETTE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_INDICATIFTEL_IND">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_INDICATIFTEL_IND">
+              <MappingFragment StoreEntitySet="T_R_INDICATIFTEL_IND">
+                <ScalarProperty Name="IND_INDICATIF" ColumnName="IND_INDICATIF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_LANGUEAVIS_LNG">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_LANGUEAVIS_LNG">
+              <MappingFragment StoreEntitySet="T_R_LANGUEAVIS_LNG">
+                <ScalarProperty Name="LNG_ID" ColumnName="LNG_ID" />
+                <ScalarProperty Name="LNG_LIBELLE" ColumnName="LNG_LIBELLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_LIEUALENTOUR_LAL">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_LIEUALENTOUR_LAL">
+              <MappingFragment StoreEntitySet="T_R_LIEUALENTOUR_LAL">
+                <ScalarProperty Name="LAL_ID" ColumnName="LAL_ID" />
+                <ScalarProperty Name="LAL_LIEU" ColumnName="LAL_LIEU" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_PAYS_PAY">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_PAYS_PAY">
+              <MappingFragment StoreEntitySet="T_R_PAYS_PAY">
+                <ScalarProperty Name="PAY_ID" ColumnName="PAY_ID" />
+                <ScalarProperty Name="PAY_NOM" ColumnName="PAY_NOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_PERIODEVISITE_PER">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_PERIODEVISITE_PER">
+              <MappingFragment StoreEntitySet="T_R_PERIODEVISITE_PER">
+                <ScalarProperty Name="PER_ID" ColumnName="PER_ID" />
+                <ScalarProperty Name="PER_MOIS" ColumnName="PER_MOIS" />
+                <ScalarProperty Name="PER_ANNEE" ColumnName="PER_ANNEE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_STYLE_STY">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_STYLE_STY">
+              <MappingFragment StoreEntitySet="T_R_STYLE_STY">
+                <ScalarProperty Name="STY_ID" ColumnName="STY_ID" />
+                <ScalarProperty Name="STY_LIBELLE" ColumnName="STY_LIBELLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_TYPEVISITE_VIS">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_TYPEVISITE_VIS">
+              <MappingFragment StoreEntitySet="T_R_TYPEVISITE_VIS">
+                <ScalarProperty Name="VIS_ID" ColumnName="VIS_ID" />
+                <ScalarProperty Name="VIS_LIBELLE" ColumnName="VIS_LIBELLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_WIFI_WIF">
+            <EntityTypeMapping TypeName="SmartTripModel.T_R_WIFI_WIF">
+              <MappingFragment StoreEntitySet="T_R_WIFI_WIF">
+                <ScalarProperty Name="WIF_ID" ColumnName="WIF_ID" />
+                <ScalarProperty Name="WIF_LIBELLE" ColumnName="WIF_LIBELLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="T_J_EQUIPEMENTHOTEL_EQH" TypeName="SmartTripModel.T_J_EQUIPEMENTHOTEL_EQH" StoreEntitySet="T_J_EQUIPEMENTHOTEL_EQH">
+            <EndProperty Name="T_R_EQUIPEMENT_EQU">
+              <ScalarProperty Name="EQU_ID" ColumnName="EQU_ID" />
+            </EndProperty>
+            <EndProperty Name="T_E_HOTEL_HOT">
+              <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="T_J_FAVORI_FAV" TypeName="SmartTripModel.T_J_FAVORI_FAV" StoreEntitySet="T_J_FAVORI_FAV">
+            <EndProperty Name="T_E_ABONNE_ABO">
+              <ScalarProperty Name="ABO_ID" ColumnName="ABO_ID" />
+            </EndProperty>
+            <EndProperty Name="T_E_HOTEL_HOT">
+              <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="T_J_HOTELSIMILAIRE_HOS" TypeName="SmartTripModel.T_J_HOTELSIMILAIRE_HOS" StoreEntitySet="T_J_HOTELSIMILAIRE_HOS">
+            <EndProperty Name="T_E_HOTEL_HOT">
+              <ScalarProperty Name="HOT_ID" ColumnName="HOT_ID" />
+            </EndProperty>
+            <EndProperty Name="T_E_HOTEL_HOT1">
+              <ScalarProperty Name="HOT_ID" ColumnName="HOT_IDSIMILAIRE" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="T_J_LIEUALENTOURAVIS_LAA" TypeName="SmartTripModel.T_J_LIEUALENTOURAVIS_LAA" StoreEntitySet="T_J_LIEUALENTOURAVIS_LAA">
+            <EndProperty Name="T_E_AVIS_AVI">
+              <ScalarProperty Name="AVI_ID" ColumnName="AVI_ID" />
+            </EndProperty>
+            <EndProperty Name="T_R_LIEUALENTOUR_LAL">
+              <ScalarProperty Name="LAL_ID" ColumnName="LAL_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="T_J_UTILITE_UTI" TypeName="SmartTripModel.T_J_UTILITE_UTI" StoreEntitySet="T_J_UTILITE_UTI">
+            <EndProperty Name="T_E_ABONNE_ABO">
+              <ScalarProperty Name="ABO_ID" ColumnName="ABO_ID" />
+            </EndProperty>
+            <EndProperty Name="T_E_AVIS_AVI">
+              <ScalarProperty Name="AVI_ID" ColumnName="AVI_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
