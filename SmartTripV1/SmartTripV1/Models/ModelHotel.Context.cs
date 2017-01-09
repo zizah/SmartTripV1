@@ -18,6 +18,7 @@ namespace SmartTripV1.Models
         public SmartTripEntities()
             : base("name=SmartTripEntities")
         {
+            Configuration.ProxyCreationEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
