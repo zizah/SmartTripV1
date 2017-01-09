@@ -21,5 +21,6 @@ namespace SmartTripWebClient.Models.DAL
         {
             throw new NotImplementedException();
         }
+
     }
 }

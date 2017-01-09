@@ -12,7 +12,17 @@ namespace SmartTripWebClient
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            
+                routes.MapRoute(
+           name: "LogOff",
+           url: "Compte/LogOff/",
+           defaults: new { controller = "Compte", action = "LogOff" }
+           );
+            routes.MapRoute(
+           name: "Login",
+           url: "Compte/Login/",
+           defaults: new { controller = "Compte", action = "Login" }
+           );
             routes.MapRoute(
             name: "Hotel",
             url: "Hotel/{date}",
@@ -20,7 +30,7 @@ namespace SmartTripWebClient
             constraints: new { date = @"(\d{1,2})-(\d{1,2})-(\d{4})" }
            );
             routes.MapRoute(
-           name: "AddHotel",
+           name: "CreerHotel",
            url: "Hotel/Creer/",
            defaults: new { controller = "Hotel", action = "CreerHotel" }
           
