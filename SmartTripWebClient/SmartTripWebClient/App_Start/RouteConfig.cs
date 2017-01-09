@@ -14,10 +14,17 @@ namespace SmartTripWebClient
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+            name: "Hotel",
+            url: "Hotel/{date}",
+            defaults: new { controller = "Hotel", action = "AfficherResultat" },
+            constraints: new { date = @"(\d{1,2})-(\d{1,2})-(\d{4})" }
+           );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+           
         }
     }
 }
