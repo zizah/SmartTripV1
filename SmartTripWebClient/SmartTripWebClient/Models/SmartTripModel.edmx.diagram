@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4596c3510ce749d5955d4734ac05473e" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartTripModel.T_E_ABONNE_ABO" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_E_ALIAS_ALI" Width="1.5" PointX="10.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_E_AVIS_AVI" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_E_HOTEL_HOT" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_E_HOTELIER_HTR" Width="1.5" PointX="3" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_E_PHOTO_PHO" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_E_REPONSEAVIS_REP" Width="1.5" PointX="7.5" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_J_STYLEAVIS_STA" Width="1.5" PointX="10.5" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_CATEGORIEHOTEL_CAT" Width="1.5" PointX="6" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_EQUIPEMENT_EQU" Width="1.5" PointX="6" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_FOURCHETTEPRIX_PRX" Width="1.5" PointX="6" PointY="24.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_INDICATIFTEL_IND" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_LANGUEAVIS_LNG" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_LIEUALENTOUR_LAL" Width="1.5" PointX="7.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_PAYS_PAY" Width="1.5" PointX="0.75" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_PERIODEVISITE_PER" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_STYLE_STY" Width="1.5" PointX="8.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_TYPEVISITE_VIS" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SmartTripModel.T_R_WIFI_WIF" Width="1.5" PointX="3" PointY="22.25" IsExpanded="true" />
+        <AssociationConnector Association="SmartTripModel.FK_ABO_IND" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_ABO_PAY" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_AVI_ABO" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_ALI_HOT" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_AVI_HOT" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_AVI_VIS" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_AVI_WIF" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_PHO_AVI" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_STA_AVI" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_T_E_AVIS_REFERENCE_T_R_LANG" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_T_E_AVIS_REFERENCE_T_R_PERI" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_T_E_REPO_REFERENCE_T_E_AVIS" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_HOT_CAT" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_HOT_IND" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_HOT_PAY" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_HOT_PRX" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_PHO_HOT" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_T_E_HOTE_REFERENCE_T_E_HOTE" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_T_E_HOTE_REFERENCE_T_R_PAYS" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.FK_STA_STY" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.T_J_EQUIPEMENTHOTEL_EQH" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.T_J_FAVORI_FAV" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.T_J_HOTELSIMILAIRE_HOS" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.T_J_LIEUALENTOURAVIS_LAA" ManuallyRouted="false" />
+        <AssociationConnector Association="SmartTripModel.T_J_UTILITE_UTI" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

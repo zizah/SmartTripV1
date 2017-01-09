@@ -80,6 +80,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -203,8 +205,82 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\DAL\Dal.cs" />
+    <Compile Include="Models\DAL\IDal.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\SmartTripModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartTripModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmartTripModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmartTripModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartTripModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_E_ABONNE_ABO.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_E_ALIAS_ALI.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_E_AVIS_AVI.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_E_HOTELIER_HTR.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_E_HOTEL_HOT.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_E_PHOTO_PHO.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_E_REPONSEAVIS_REP.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_J_STYLEAVIS_STA.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_CATEGORIEHOTEL_CAT.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_EQUIPEMENT_EQU.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_FOURCHETTEPRIX_PRX.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_INDICATIFTEL_IND.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_LANGUEAVIS_LNG.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_LIEUALENTOUR_LAL.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_PAYS_PAY.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_PERIODEVISITE_PER.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_STYLE_STY.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_TYPEVISITE_VIS.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\T_R_WIFI_WIF.cs">
+      <DependentUpon>SmartTripModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -215,12 +291,29 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\SmartTripModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmartTripModel.edmx</DependentUpon>
+      <LastGenOutput>SmartTripModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\SmartTripModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmartTripModel.edmx</DependentUpon>
+      <LastGenOutput>SmartTripModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\ai.0.22.19-build00125.js" />
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\SmartTripModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SmartTripModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\SmartTripModel.edmx.diagram">
+      <DependentUpon>SmartTripModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -280,6 +373,9 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
