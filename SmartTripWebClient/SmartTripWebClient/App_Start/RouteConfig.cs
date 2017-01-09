@@ -20,6 +20,12 @@ namespace SmartTripWebClient
             constraints: new { date = @"(\d{1,2})-(\d{1,2})-(\d{4})" }
            );
             routes.MapRoute(
+           name: "AddHotel",
+           url: "Hotel/Creer/",
+           defaults: new { controller = "Hotel", action = "CreerHotel" }
+          
+          );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }

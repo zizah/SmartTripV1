@@ -16,5 +16,10 @@ namespace SmartTripWebClient.Models.DAL
         {
             throw new NotImplementedException();
         }
+
+        public IList<T_E_HOTEL_HOT> RenvoieTousLesHotels()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
