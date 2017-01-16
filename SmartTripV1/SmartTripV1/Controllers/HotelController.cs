@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using SmartTripV1.Models;
+using AttributeRouting.Web.Mvc;
 
 namespace SmartTripV1.Controllers
 {
@@ -34,6 +35,26 @@ namespace SmartTripV1.Controllers
 
             return Ok(t_E_HOTEL_HOT);
         }
+
+
+
+        // GET: api/Hotel/Search/paris
+        [System.Web.Http.Route("api/Search/Hotel/{query}")] //this one works
+        [HttpGet]
+        public IHttpActionResult Search(string query)
+        {
+             var T_E_HOTEL_HOT = (from u in db.T_E_HOTEL_HOT
+                                 where (query == "" || u.HOT_VILLE.ToLower().Contains(query.ToLower()))
+                                 select u); 
+
+
+
+
+
+            return Ok(T_E_HOTEL_HOT);
+        }
+        
+
 
         // PUT: api/Hotel/5
         [ResponseType(typeof(void))]

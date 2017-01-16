@@ -25,6 +25,11 @@ namespace SmartTripWebClient.Controllers
             DateTime d = DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             return "Il n'existe pas d'Hotel à cette date " + d.ToString();
         }
+        public ListHotels RechercherHotel(string tag)
+        {
+
+            return null;
+        }
 
         [Authorize]
         public ActionResult CreerHotel()

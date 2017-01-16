@@ -19,19 +19,45 @@
     </div>
     <div class="row">
 
+        <div class="search-bloc">
+            <!-- Input -->
+            @using (Html.BeginForm("CreerHotel", "Hotel", FormMethod.Post))
+            {
+            <input type="text" name"search"="" class="form-control search" placeholder="Rechercher un hotel...">
+
+            <!-- Dropdown -->
+                <div class="input-group-btn">
+                    <button type="button" class="btn btn-default" data-toggle="dropdown">Filtre <span class="caret"></span></button>
+                    <ul class="dropdown-menu pull-left" role="menu">
+                        <li><a href="#">Option 1</a></li>
+                        <li><a href="#">Option 2</a></li>
+                        <li><a href="#">Option 3</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">Option 4</a></li>
+                    </ul>
+
+                    <button typeof="submit" class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="row">
+
             <div class="col-lg-12">
                 <h1 class="page-header">Découvrez nos Hotels en France</h1>
             </div>
-
+        
         @foreach (var hotel in Model.Items)
-        {        
+        {
             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                 <a class="thumbnail" href="#">
                     <img class="img-responsive" src="http://placehold.it/400x300" alt="">
-                    <span class="stars"><span style="width: @(@hotel.CAT_NBETOILES *20)%"></span></span>
+                    <span class="stars"><span style="width: @(@hotel.CAT_NBETOILES * 20)%"></span></span>
                 </a>
             </div>
-        }
+            }
            
         </div>
 </body>

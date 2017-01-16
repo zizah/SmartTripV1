@@ -32,3 +32,8 @@ span.stars, span.stars span {
 		span.stars span {
 			background-position: 0 0;
 		}
+
+input.search {
+    max-width: 88%;
+    float: left;
+}

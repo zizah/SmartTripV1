@@ -99,8 +99,13 @@ namespace SmartTripWebClient.Models.DAL
 
 
         }
-        
 
+        public ListHotels RechercherHotel(string tag)
+        {
+
+             
+
+        }
     }
     
 
