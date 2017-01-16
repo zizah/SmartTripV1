@@ -203,6 +203,7 @@
     </Compile>
     <Compile Include="Models\DAL\Dal.cs" />
     <Compile Include="Models\DAL\IDal.cs" />
+    <Compile Include="Models\DAL\ListeHotels.cs" />
     <Compile Include="Models\Metadata\T_E_HOTEL_HOTMetadata.cs" />
     <Compile Include="Models\Metadata\T_E_HOTEL_HOTPart.cs" />
     <Compile Include="Models\SmartTripModel.Context.cs">

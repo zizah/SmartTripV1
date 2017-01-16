@@ -16,7 +16,7 @@ namespace SmartTripWebClient.Controllers
         // GET: Hotel
         public ActionResult Index()
         {
-             IList<T_E_HOTEL_HOT> listeHotel = WSModel.RenvoieTousLesHotels();
+             ListHotels listeHotel = WSModel.RenvoieTousLesHotels();
 
             return View();
         }
@@ -33,18 +33,18 @@ namespace SmartTripWebClient.Controllers
 
 
 
-            List<string> AgeList = new List<string>();
-            AgeList.Add("0-17");
-            AgeList.Add("18-21");
-            AgeList.Add("22-25");
-            AgeList.Add("26-35");
-            AgeList.Add("36+");
+            List<string> testList = new List<string>();
+            testList.Add("0-17");
+            testList.Add("18-21");
+            testList.Add("22-25");
+            testList.Add("26-35");
+            testList.Add("36+");
 
-            ViewData["HTR_ID"] = new SelectList(AgeList);
-            ViewData["PRX_ID"] = new SelectList(AgeList);
-            ViewData["PAY_ID"] = new SelectList(AgeList);
-            ViewData["IND_INDICATIF"] = new SelectList(AgeList);
-            ViewData["CAT_NBETOILES"] = new SelectList(AgeList);
+            ViewData["HTR_ID"] = new SelectList(testList);
+            ViewData["PRX_ID"] = new SelectList(testList);
+            ViewData["PAY_ID"] = new SelectList(testList);
+            ViewData["IND_INDICATIF"] = new SelectList(testList);
+            ViewData["CAT_NBETOILES"] = new SelectList(testList);
 
 
 

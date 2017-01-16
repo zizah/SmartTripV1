@@ -10,8 +10,9 @@ namespace SmartTripWebClient.Models.DAL
     {
 
 
-        IList<T_E_HOTEL_HOT> RenvoieTousLesHotels();
+        ListHotels RenvoieTousLesHotels();
 
 
     }
+    
 }

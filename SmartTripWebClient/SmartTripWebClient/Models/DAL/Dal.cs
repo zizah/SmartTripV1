@@ -10,6 +10,7 @@ using System.Net;
 using System.IO;
 using System.Data;
 using System.Xml.Serialization;
+using System.Text;
 
 namespace SmartTripWebClient.Models.DAL
 {
@@ -24,22 +25,36 @@ namespace SmartTripWebClient.Models.DAL
             throw new NotImplementedException();
         }
 
-        public  IList<T_E_HOTEL_HOT> RenvoieTousLesHotels()
+        public ListHotels RenvoieTousLesHotels()
         {
 
 
-            string StringContent=GetDataFromAPI("Hotel/1");
+            string StringContent = GetDataFromAPI("Hotel");
+            XmlSerializer xs = new XmlSerializer(typeof(ListHotels));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListHotels;
+
+            return obj;
+
+
+
+        }
+
+        public T_E_HOTEL_HOT RenvoieHotel(int ID)
+        {
+
+
+            string StringContent = GetDataFromAPI("Hotel/"+ ID);
 
 
             XmlSerializer xs = new XmlSerializer(typeof(T_E_HOTEL_HOT));
             T_E_HOTEL_HOT p;
             using (TextReader rd = new StringReader(StringContent))
-                 p = xs.Deserialize(rd) as T_E_HOTEL_HOT;
+                p = xs.Deserialize(rd) as T_E_HOTEL_HOT;
 
-           
-            return null;
+
+            return p;
         }
-
         public string GetDataFromAPI(String endPoint)
         {
             string[] tab = { APIServer, Application, endPoint };
@@ -84,6 +99,9 @@ namespace SmartTripWebClient.Models.DAL
 
 
         }
+        
 
     }
+    
+
 }
