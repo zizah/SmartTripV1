@@ -13,10 +13,10 @@ namespace SmartTripV1.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class SmartTripEntities : DbContext
+    public partial class SmartTripEntities1 : DbContext
     {
-        public SmartTripEntities()
-            : base("name=SmartTripEntities")
+        public SmartTripEntities1()
+            : base("name=SmartTripEntities1")
         {
             Configuration.ProxyCreationEnabled = false;
         }

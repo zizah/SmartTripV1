@@ -1250,7 +1250,7 @@
           <End Role="T_E_ABONNE_ABO" Type="Self.T_E_ABONNE_ABO" Multiplicity="*" />
           <End Role="T_E_AVIS_AVI" Type="Self.T_E_AVIS_AVI" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="SmartTripEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="SmartTripEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="T_E_ABONNE_ABO" EntityType="Self.T_E_ABONNE_ABO" />
           <EntitySet Name="T_E_ALIAS_ALI" EntityType="Self.T_E_ALIAS_ALI" />
           <EntitySet Name="T_E_AVIS_AVI" EntityType="Self.T_E_AVIS_AVI" />
@@ -1376,7 +1376,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="SmartTripModelStoreContainer" CdmEntityContainer="SmartTripEntities">
+        <EntityContainerMapping StorageEntityContainer="SmartTripModelStoreContainer" CdmEntityContainer="SmartTripEntities1">
           <EntitySetMapping Name="T_E_ABONNE_ABO">
             <EntityTypeMapping TypeName="SmartTripModel.T_E_ABONNE_ABO">
               <MappingFragment StoreEntitySet="T_E_ABONNE_ABO">

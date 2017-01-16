@@ -11,7 +11,9 @@ namespace SmartTripWebClient.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Xml.Serialization;
+    [XmlRoot(ElementName = "T_E_HOTEL_HOT", Namespace = "http://schemas.datacontract.org/2004/07/SmartTripV1.Models")]
+
     public partial class T_E_HOTEL_HOT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -47,23 +49,36 @@ namespace SmartTripWebClient.Models
         public Nullable<decimal> HOT_NBCHAMBRES { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        [XmlIgnore]
         public virtual ICollection<T_E_ALIAS_ALI> T_E_ALIAS_ALI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_AVIS_AVI> T_E_AVIS_AVI { get; set; }
+        [XmlIgnore]
         public virtual T_R_CATEGORIEHOTEL_CAT T_R_CATEGORIEHOTEL_CAT { get; set; }
+        [XmlIgnore]
         public virtual T_R_INDICATIFTEL_IND T_R_INDICATIFTEL_IND { get; set; }
+        [XmlIgnore]
         public virtual T_R_PAYS_PAY T_R_PAYS_PAY { get; set; }
+        [XmlIgnore]
         public virtual T_R_FOURCHETTEPRIX_PRX T_R_FOURCHETTEPRIX_PRX { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_PHOTO_PHO> T_E_PHOTO_PHO { get; set; }
+        [XmlIgnore]
         public virtual T_E_HOTELIER_HTR T_E_HOTELIER_HTR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_R_EQUIPEMENT_EQU> T_R_EQUIPEMENT_EQU { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_ABONNE_ABO> T_E_ABONNE_ABO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_HOTEL_HOT> T_E_HOTEL_HOT1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_HOTEL_HOT> T_E_HOTEL_HOT2 { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace SmartTripWebClient.Models.DAL
     {
 
 
-        T_E_ABONNE_ABO AuthentifierAbonne(string nom, string password);
         IList<T_E_HOTEL_HOT> RenvoieTousLesHotels();
 
 

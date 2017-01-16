@@ -1,8 +1,10 @@
 ﻿using SmartTripWebClient.Models;
+using SmartTripWebClient.Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -10,9 +12,12 @@ namespace SmartTripWebClient.Controllers
 {
     public class HotelController : Controller
     {
+        Dal WSModel = new Dal();
         // GET: Hotel
         public ActionResult Index()
         {
+             IList<T_E_HOTEL_HOT> listeHotel = WSModel.RenvoieTousLesHotels();
+
             return View();
         }
         public string AfficherResultat(string date)

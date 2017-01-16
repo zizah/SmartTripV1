@@ -14,7 +14,7 @@ namespace SmartTripV1.Controllers
 {
     public class HotelController : ApiController
     {
-        private SmartTripEntities db = new SmartTripEntities();
+        private SmartTripEntities1 db = new SmartTripEntities1();
 
         // GET: api/Hotel
         public IQueryable<T_E_HOTEL_HOT> GetHotel()

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2b6951722d2648879e230f62e07900ad" Name="Diagram1">
+      <Diagram DiagramId="4b2a87bb72794b5ebef38d265aaad2d2" Name="Diagram1">
         <EntityTypeShape EntityType="SmartTripModel.T_E_ABONNE_ABO" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartTripModel.T_E_ALIAS_ALI" Width="1.5" PointX="10.5" PointY="14.5" IsExpanded="true" />
         <EntityTypeShape EntityType="SmartTripModel.T_E_AVIS_AVI" Width="1.5" PointX="5.25" PointY="9.75" IsExpanded="true" />
