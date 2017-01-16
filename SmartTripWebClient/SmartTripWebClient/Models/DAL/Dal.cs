@@ -39,6 +39,18 @@ namespace SmartTripWebClient.Models.DAL
 
 
         }
+
+ 
+        public ListPrix getDefinitionPrixIndicatif()
+        {
+            string StringContent = GetDataFromAPI("Search/PRX_ID/");
+            XmlSerializer xs = new XmlSerializer(typeof(ListPrix));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListPrix;
+
+            return obj;
+
+        }
         public ListHotels RenvoieTousLesHotels()
         {
 

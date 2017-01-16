@@ -11,7 +11,8 @@ namespace SmartTripWebClient.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Xml.Serialization;
+
     public partial class T_R_FOURCHETTEPRIX_PRX
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,7 +23,8 @@ namespace SmartTripWebClient.Models
     
         public decimal PRX_ID { get; set; }
         public string PRX_FOURCHETTE { get; set; }
-    
+
+        [XmlIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<T_E_HOTEL_HOT> T_E_HOTEL_HOT { get; set; }
     }

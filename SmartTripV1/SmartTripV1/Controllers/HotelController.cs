@@ -52,7 +52,38 @@ namespace SmartTripV1.Controllers
 
             return Ok(T_E_HOTEL_HOT);
         }
-        
+
+
+
+        [System.Web.Http.Route("api/Search/PRX_ID/")]  
+        [HttpGet]
+        public IQueryable<T_R_FOURCHETTEPRIX_PRX> DefinitionPRX_ID()
+        {
+            return db.T_R_FOURCHETTEPRIX_PRX;
+        }
+
+
+        [System.Web.Http.Route("api/Search/PAYS/")]
+        [HttpGet]
+        public IQueryable<T_R_PAYS_PAY> DefinitionPAYS()
+        {
+            return db.T_R_PAYS_PAY;
+        }
+
+        [System.Web.Http.Route("api/Search/IND/")]
+        [HttpGet]
+        public IQueryable<T_R_INDICATIFTEL_IND> DefinitionIND()
+        {
+            return db.T_R_INDICATIFTEL_IND;
+        }
+
+
+        [System.Web.Http.Route("api/Search/ETOILES/")]
+        [HttpGet]
+        public IQueryable<T_R_CATEGORIEHOTEL_CAT> DefinitionETOILES()
+        {
+            return db.T_R_CATEGORIEHOTEL_CAT;
+        }
 
 
         // PUT: api/Hotel/5

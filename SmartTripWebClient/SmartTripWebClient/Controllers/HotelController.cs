@@ -38,6 +38,12 @@ namespace SmartTripWebClient.Controllers
 
 
 
+            ListPrix ListPrix = WSModel.getDefinitionPrixIndicatif();
+            List<string> ListPrixString = new List<string>();
+            foreach (T_R_FOURCHETTEPRIX_PRX prix in ListPrix.Items)
+            {
+                ListPrixString.Add(prix.PRX_FOURCHETTE.ToString());
+            } 
 
             List<string> testList = new List<string>();
             testList.Add("0-17");
@@ -47,7 +53,7 @@ namespace SmartTripWebClient.Controllers
             testList.Add("36+");
 
             ViewData["HTR_ID"] = new SelectList(testList);
-            ViewData["PRX_ID"] = new SelectList(testList);
+            ViewData["PRX_ID"] = new SelectList(ListPrixString);
             ViewData["PAY_ID"] = new SelectList(testList);
             ViewData["IND_INDICATIF"] = new SelectList(testList);
             ViewData["CAT_NBETOILES"] = new SelectList(testList);
