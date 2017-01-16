@@ -44,12 +44,11 @@ namespace SmartTripV1.Controllers
         public IHttpActionResult Search(string query)
         {
              var T_E_HOTEL_HOT = (from u in db.T_E_HOTEL_HOT
-                                 where (query == "" || u.HOT_VILLE.ToLower().Contains(query.ToLower()))
+                                 where (u.HOT_VILLE.ToLower().Contains(query.ToLower()))
                                  select u); 
 
 
-
-
+            
 
             return Ok(T_E_HOTEL_HOT);
         }

@@ -11,8 +11,7 @@ namespace SmartTripWebClient.Models.DAL
 
 
         ListHotels RenvoieTousLesHotels();
-        ListHotels RechercherHotel(string tag);
-
+        ListHotels SearchHotel(string query);
 
     }
 

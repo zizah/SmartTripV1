@@ -12,14 +12,20 @@ namespace SmartTripWebClient
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
-                routes.MapRoute(
+
+
+            routes.MapRoute(
+    name: "SearchHotel",
+    url: "Hotel/Search/",
+    defaults: new { controller = "Hotel", action = "Search" }
+    );
+
+
+            routes.MapRoute(
            name: "LogOff",
            url: "Compte/LogOff/",
            defaults: new { controller = "Compte", action = "LogOff" }
            );
-
-            
 
             routes.MapRoute(
            name: "Login",

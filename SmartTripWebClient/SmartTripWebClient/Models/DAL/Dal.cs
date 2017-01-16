@@ -25,6 +25,20 @@ namespace SmartTripWebClient.Models.DAL
             throw new NotImplementedException();
         }
 
+        public ListHotels SearchHotel(string query)
+        {
+
+
+            string StringContent = GetDataFromAPI("Search/Hotel/"+query);
+            XmlSerializer xs = new XmlSerializer(typeof(ListHotels));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListHotels;
+
+            return obj;
+
+
+
+        }
         public ListHotels RenvoieTousLesHotels()
         {
 
@@ -100,12 +114,7 @@ namespace SmartTripWebClient.Models.DAL
 
         }
 
-        public ListHotels RechercherHotel(string tag)
-        {
-
-             
-
-        }
+        
     }
     
 
