@@ -18,7 +18,7 @@ namespace SmartTripWebClient.Controllers
         {
              ListHotels listeHotel = WSModel.RenvoieTousLesHotels();
 
-            return View();
+            return View(listeHotel);
         }
         public string AfficherResultat(string date)
         {

@@ -1,7 +1,6 @@
 ﻿
-@{
-    Layout = null;
-}
+ 
+@model SmartTripWebClient.Models.DAL.ListHotels
 
 <!DOCTYPE html>
 
@@ -11,7 +10,29 @@
     <title>Liste Hotels</title>
 </head>
 <body>
-    <div> 
+    <div class="jumbotron">
+        <h1>NOS HOTELS</h1>
+        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Devenez Hotelier</a>
+        </p>
     </div>
+    <div class="row">
+
+            <div class="col-lg-12">
+                <h1 class="page-header">Découvrez nos Hotels en France</h1>
+            </div>
+
+        @foreach (var hotel in Model.Items)
+        {        
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+                    <span class="stars"><span style="width: @(@hotel.CAT_NBETOILES *20)%"></span></span>
+                </a>
+            </div>
+        }
+           
+        </div>
 </body>
 </html>
