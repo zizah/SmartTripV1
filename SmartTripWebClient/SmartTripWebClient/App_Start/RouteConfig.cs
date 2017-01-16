@@ -18,11 +18,19 @@ namespace SmartTripWebClient
            url: "Compte/LogOff/",
            defaults: new { controller = "Compte", action = "LogOff" }
            );
+
+            
+
             routes.MapRoute(
            name: "Login",
            url: "Compte/Login/",
            defaults: new { controller = "Compte", action = "Login" }
            );
+            routes.MapRoute(
+         name: "LoginHotelier",
+         url: "Compte/LoginHotelier/",
+         defaults: new { controller = "Compte", action = "LoginHotelier" }
+         );
             routes.MapRoute(
             name: "Hotel",
             url: "Hotel/{date}",

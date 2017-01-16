@@ -301,9 +301,6 @@
     <Content Include="Scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <EntityDeploy Include="Models\SmartTripModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SmartTripModel.Designer.cs</LastGenOutput>
@@ -358,6 +355,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Hotel\CreerHotel.cshtml" />
+    <Content Include="Views\Compte\LoginHotelier.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
