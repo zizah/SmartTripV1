@@ -16,7 +16,7 @@ using Microsoft.AspNet.Identity;
 
 namespace SmartTripWebClient.Models.DAL
 {
-    public class Dal : IDal
+    public class DalHotel : IDal
     {
         String APIServer= "http://localhost:2293";
         String Application = "API";
@@ -27,7 +27,7 @@ namespace SmartTripWebClient.Models.DAL
             throw new NotImplementedException();
         }
 
-        public ListHotels SearchHotel(string query)
+        public CollectionModel Search(string query)
         {
 
 
@@ -156,7 +156,7 @@ namespace SmartTripWebClient.Models.DAL
             return obj;
 
         }
-        public ListHotels RenvoieTousLesHotels()
+        public CollectionModel RenvoiTous()
         {
 
 

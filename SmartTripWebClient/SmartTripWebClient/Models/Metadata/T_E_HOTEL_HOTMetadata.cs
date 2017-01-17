@@ -8,44 +8,34 @@ namespace SmartTripWebClient.Models.Metadata
     {
         public decimal HOT_ID { get; set; }
         public decimal HTR_ID { get; set; }
-        [Required]
         public decimal PRX_ID { get; set; }
-
         [DisplayName("Nom d'Hotel")]
         public string HOT_NOM { get; set; }
-        [Required]
         [DisplayName("Etoiles")]
         public decimal CAT_NBETOILES { get; set; }
         [DisplayName("Description")]
-        [Required]
         public string HOT_DESCRIPTION { get; set; }
         [DisplayName("Adresse ligne 1")]
-        [Required]
         public string HOT_ADRLIGNE1 { get; set; }
         [DisplayName("Adresse ligne 2")]
         public string HOT_ADRLIGNE2 { get; set; }
         [DisplayName("Code Postale")]
-        [Required]
         public string HOT_CP { get; set; }
         [DisplayName("Ville")]
-        [Required]
-
         public string HOT_VILLE { get; set; }
         [DisplayName("Etat")]
         public string HOT_ETAT { get; set; }
         [DisplayName("Pays")]
-        [Required]
         public decimal PAY_ID { get; set; }
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public float HOT_LATITUDE { get; set; }
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public float HOT_LONGITUDE { get; set; }
         [DisplayName("Indicatif")]
-        [Required]
         public decimal IND_INDICATIF { get; set; }
         [DataType(DataType.PhoneNumber)]
         [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Telephone non valide: Verifiez le format du numéro")]
-        [Required]
+
         [DisplayName("Telephone")]
         public string HOT_TEL { get; set; }
         [Required]

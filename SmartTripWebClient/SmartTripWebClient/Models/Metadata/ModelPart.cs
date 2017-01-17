@@ -11,4 +11,9 @@ namespace SmartTripWebClient.Models
     public partial class T_E_HOTEL_HOT
     {
     }
+
+    [MetadataType(typeof(T_E_ABONNE_ABO))]
+    public partial class T_E_ABONNE_ABO
+    {
+    }
 }

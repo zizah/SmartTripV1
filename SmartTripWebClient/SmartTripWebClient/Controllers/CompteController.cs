@@ -2,9 +2,11 @@
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using SmartTripWebClient.Models;
+using SmartTripWebClient.Models.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
@@ -15,6 +17,9 @@ namespace SmartTripWebClient.Controllers
 {
     public class CompteController : Controller
     {
+        DALAbonne WSModelAbonne = new Models.DAL.DALAbonne();
+        DalHotel WSModelHotel = new Models.DAL.DalHotel();
+
         // GET: Compte
         public ActionResult Index()
         {
@@ -82,6 +87,33 @@ namespace SmartTripWebClient.Controllers
             HttpContext.GetOwinContext().Authentication.SignOut(DefaultAuthenticationTypes.ApplicationCookie,
             DefaultAuthenticationTypes.ExternalCookie);
             return View("../Home/Index");
+        }
+
+        [HttpPost]
+        public HttpResponseMessage RegisterAbonne(T_E_ABONNE_ABO abonne)
+        {
+            if (ModelState.IsValid && abonne != null)
+            {
+                WSModelAbonne.Register(abonne);
+
+                return null;
+            }
+            else
+            {
+                return null;
+            }
+
+            
+        }
+        [HttpGet]
+        public ActionResult RegisterAbonne()
+        {
+            ListPays ListPays = WSModelHotel.getDefinitionPays();
+            ListIND ListIND = WSModelHotel.getDefinitionIND();
+            ViewData["PAY_ID"] = new SelectList(ListPays.Items, "PAY_ID", "PAY_NOM", 1);
+            ViewData["IND_INDICATIF"] = new SelectList(ListIND.Items, "IND_INDICATIF", "IND_INDICATIF", 1);
+            return View();
+
         }
 
         public class ApplicationUser : IdentityUser

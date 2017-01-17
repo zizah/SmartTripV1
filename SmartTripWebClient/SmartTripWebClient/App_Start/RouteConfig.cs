@@ -20,6 +20,12 @@ namespace SmartTripWebClient
     defaults: new { controller = "Hotel", action = "Search" }
     );
 
+            
+                 routes.MapRoute(
+           name: "RegisterAbonne",
+           url: "Compte/RegisterAbonne/",
+           defaults: new { controller = "Compte", action = "RegisterAbonne" }
+           );
 
             routes.MapRoute(
            name: "LogOff",

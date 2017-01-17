@@ -14,11 +14,11 @@ namespace SmartTripWebClient.Controllers
 {
     public class HotelController : Controller
     {
-        Dal WSModel = new Dal();
+        DalHotel WSModel = new DalHotel();
         // GET: Hotel
         public ActionResult Index()
         {
-             ListHotels listeHotel = WSModel.RenvoieTousLesHotels();
+            CollectionModel listeHotel = WSModel.RenvoiTous();
 
             return View(listeHotel);
         }
@@ -29,7 +29,7 @@ namespace SmartTripWebClient.Controllers
         }
         public ActionResult Search(string query)
         {
-            ListHotels listeHotel = WSModel.SearchHotel(query);
+            CollectionModel listeHotel = WSModel.Search(query);
             ViewBag.details = query;
             return View("index",listeHotel);
         }
@@ -62,8 +62,9 @@ namespace SmartTripWebClient.Controllers
  
 
             ViewData["PAY_ID"] = new SelectList(ListPays.Items, "PAY_ID", "PAY_NOM", 1);
-            ViewData["CAT_NBETOILES"] = new SelectList(ListeEtoiles.Items, "CAT_NBETOILES", "CAT_NBETOILES", 1);
             ViewData["IND_INDICATIF"] = new SelectList(ListIND.Items, "IND_INDICATIF", "IND_INDICATIF", 1);
+
+            ViewData["CAT_NBETOILES"] = new SelectList(ListeEtoiles.Items, "CAT_NBETOILES", "CAT_NBETOILES", 1);
             ViewData["PRX_ID"] = new SelectList(ListPrix.Items, "PRX_ID", "PRX_FOURCHETTE", 1);
 
 

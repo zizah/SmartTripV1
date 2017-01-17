@@ -201,11 +201,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\DAL\Dal.cs" />
+    <Compile Include="Models\DAL\DALAbonne.cs" />
+    <Compile Include="Models\DAL\DalHotel.cs" />
     <Compile Include="Models\DAL\IDal.cs" />
     <Compile Include="Models\DAL\CollectionsModel.cs" />
+    <Compile Include="Models\Metadata\T_E_ABONNE_ABOMetadata.cs" />
     <Compile Include="Models\Metadata\T_E_HOTEL_HOTMetadata.cs" />
-    <Compile Include="Models\Metadata\T_E_HOTEL_HOTPart.cs" />
+    <Compile Include="Models\Metadata\ModelPart.cs" />
     <Compile Include="Models\SmartTripModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -359,6 +361,7 @@
     <Content Include="Views\Hotel\CreerHotel.cshtml" />
     <Content Include="Views\Compte\LoginHotelier.cshtml" />
     <Content Include="Views\Hotel\index.cshtml" />
+    <Content Include="Views\Compte\RegisterAbonne.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
