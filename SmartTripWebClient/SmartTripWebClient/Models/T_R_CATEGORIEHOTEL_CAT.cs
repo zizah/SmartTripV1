@@ -11,7 +11,8 @@ namespace SmartTripWebClient.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Xml.Serialization;
+
     public partial class T_R_CATEGORIEHOTEL_CAT
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -23,6 +24,7 @@ namespace SmartTripWebClient.Models
         public decimal CAT_NBETOILES { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_HOTEL_HOT> T_E_HOTEL_HOT { get; set; }
     }
 }

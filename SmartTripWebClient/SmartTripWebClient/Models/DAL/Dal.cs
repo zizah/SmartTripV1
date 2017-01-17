@@ -51,6 +51,36 @@ namespace SmartTripWebClient.Models.DAL
             return obj;
 
         }
+        public ListPays getDefinitionPays()
+        {
+            string StringContent = GetDataFromAPI("Search/PAYS/");
+            XmlSerializer xs = new XmlSerializer(typeof(ListPays));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListPays;
+
+            return obj;
+
+        }
+        public ListEtoiles getDefinitionEtoiles()
+        {
+            string StringContent = GetDataFromAPI("Search/ETOILES/");
+            XmlSerializer xs = new XmlSerializer(typeof(ListEtoiles));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListEtoiles;
+
+            return obj;
+
+        }
+        public ListIND getDefinitionIND()
+        {
+            string StringContent = GetDataFromAPI("Search/IND/");
+            XmlSerializer xs = new XmlSerializer(typeof(ListIND));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListIND;
+
+            return obj;
+
+        }
         public ListHotels RenvoieTousLesHotels()
         {
 

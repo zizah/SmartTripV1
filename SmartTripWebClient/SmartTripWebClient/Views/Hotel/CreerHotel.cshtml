@@ -22,16 +22,10 @@
             <h4>Créer un nouvel Hotel</h4>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="form-group">
-                @Html.LabelFor(model => model.HTR_ID, "HTR_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("HTR_ID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.HTR_ID, "", new { @class = "text-danger" })
-                </div>
-            </div>
+             
     
             <div class="form-group">
-                @Html.LabelFor(model => model.PRX_ID, "PRX_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.PRX_ID, "Tranche de prix", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("PRX_ID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.PRX_ID, "", new { @class = "text-danger" })
@@ -95,31 +89,17 @@
             </div>
     
             <div class="form-group">
-                @Html.LabelFor(model => model.PAY_ID, "PAY_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.PAY_ID, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("PAY_ID", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.PAY_ID, "", new { @class = "text-danger" })
                 </div>
             </div>
     
-            <div class="form-group">
-                @Html.LabelFor(model => model.HOT_LATITUDE, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HOT_LATITUDE, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HOT_LATITUDE, "", new { @class = "text-danger" })
-                </div>
-            </div>
+             
     
             <div class="form-group">
-                @Html.LabelFor(model => model.HOT_LONGITUDE, htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.EditorFor(model => model.HOT_LONGITUDE, new { htmlAttributes = new { @class = "form-control" } })
-                    @Html.ValidationMessageFor(model => model.HOT_LONGITUDE, "", new { @class = "text-danger" })
-                </div>
-            </div>
-    
-            <div class="form-group">
-                @Html.LabelFor(model => model.IND_INDICATIF, "IND_INDICATIF", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.IND_INDICATIF, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("IND_INDICATIF", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.IND_INDICATIF, "", new { @class = "text-danger" })
@@ -127,7 +107,7 @@
             </div>
     
             <div class="form-group">
-                @Html.LabelFor(model => model.CAT_NBETOILES, "CAT_NBETOILES", htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.LabelFor(model => model.CAT_NBETOILES, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
                     @Html.DropDownList("CAT_NBETOILES", null, htmlAttributes: new { @class = "form-control" })
                     @Html.ValidationMessageFor(model => model.CAT_NBETOILES, "", new { @class = "text-danger" })
