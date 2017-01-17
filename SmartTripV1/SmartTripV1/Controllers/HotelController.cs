@@ -125,15 +125,23 @@ namespace SmartTripV1.Controllers
         [ResponseType(typeof(T_E_HOTEL_HOT))]
         public IHttpActionResult PostHotel(T_E_HOTEL_HOT t_E_HOTEL_HOT)
         {
-            if (!ModelState.IsValid)
+            try
             {
-                return BadRequest(ModelState);
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                db.T_E_HOTEL_HOT.Add(t_E_HOTEL_HOT);
+                db.SaveChanges();
+
+
+                return CreatedAtRoute("DefaultApi", new { id = t_E_HOTEL_HOT.HOT_ID }, t_E_HOTEL_HOT);
+            }catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return null;
             }
-
-            db.T_E_HOTEL_HOT.Add(t_E_HOTEL_HOT);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = t_E_HOTEL_HOT.HOT_ID }, t_E_HOTEL_HOT);
         }
 
         // DELETE: api/Hotel/5

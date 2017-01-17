@@ -40,7 +40,7 @@ namespace SmartTripWebClient.Controllers
         {
             if (ModelState.IsValid && newHotel != null)
             {
-
+                WSModel.addHotel(newHotel);
 
                 return null;
             }

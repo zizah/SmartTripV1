@@ -11,6 +11,8 @@ using System.IO;
 using System.Data;
 using System.Xml.Serialization;
 using System.Text;
+using System.Collections.Specialized;
+using Microsoft.AspNet.Identity;
 
 namespace SmartTripWebClient.Models.DAL
 {
@@ -29,7 +31,7 @@ namespace SmartTripWebClient.Models.DAL
         {
 
 
-            string StringContent = GetDataFromAPI("Search/Hotel/"+query);
+            string StringContent = GetDataFromAPI("Search/Hotel/"+query, "GET");
             XmlSerializer xs = new XmlSerializer(typeof(ListHotels));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
             var obj = xs.Deserialize(ms) as ListHotels;
@@ -40,10 +42,83 @@ namespace SmartTripWebClient.Models.DAL
 
         }
 
+        public T_E_HOTELIER_HTR SearchUser(string mail)
+        {
+
+            string StringContent = GetDataFromAPI("Search/User/?mail="+mail, "GET");
+            XmlSerializer xs = new XmlSerializer(typeof(ListHoteliers));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListHoteliers;
+
+            return obj.Items.First();
+
+
+        }
+
+        public T_E_HOTEL_HOT cleanHotel(T_E_HOTEL_HOT hotel)
+        {
+            if(hotel.HOT_NBCHAMBRES == null)
+              hotel.HOT_NBCHAMBRES = -1;
+            if (hotel.HOT_SITEWEB == null)
+                hotel.HOT_SITEWEB = "N/R";
+            if (hotel.HOT_ETAT == null)
+                hotel.HOT_ETAT = "N/R";
+            if (hotel.HOT_ADRLIGNE2 == null)
+                hotel.HOT_ADRLIGNE2 = "N/R";
+            hotel.HOT_LATITUDE = 0;
+            hotel.HOT_LONGITUDE = 0;
+
+
+            return hotel;
+        }
+        public int addHotel(T_E_HOTEL_HOT hotel_)
+        {
+            //HTR_ID
+            T_E_HOTEL_HOT hotel = cleanHotel(hotel_);
+            string userID=HttpContext.Current.User.Identity.GetUserId();
+            T_E_HOTELIER_HTR user = SearchUser(userID);
+
+            using (WebClient client = new WebClient())
+            {
+                string[] tab = { APIServer, Application, "Hotel" };
+                String FullURL = string.Join("/", tab);
+                byte[] response =
+                client.UploadValues(FullURL, new NameValueCollection()
+                {
+                       { "CAT_NBETOILES", hotel.CAT_NBETOILES.ToString() },
+                       { "PRX_ID", hotel.PRX_ID.ToString() },
+                       { "HOT_ADRLIGNE1", hotel.HOT_ADRLIGNE1.ToString() },
+                       { "HOT_ADRLIGNE2", hotel.HOT_ADRLIGNE2.ToString() },
+                       { "HOT_CP", hotel.HOT_CP.ToString() },
+                       { "HOT_DESCRIPTION", hotel.HOT_DESCRIPTION.ToString() },
+                       { "HOT_ETAT", hotel.HOT_ETAT.ToString() },
+                       { "HOT_LATITUDE", hotel.HOT_LATITUDE.ToString() },
+                       { "HOT_LONGITUDE", hotel.HOT_LONGITUDE.ToString() },
+                       { "HOT_MEL", hotel.HOT_MEL.ToString() },
+                       { "HOT_NBCHAMBRES", hotel.HOT_NBCHAMBRES.ToString() },
+                       { "HOT_NOM", hotel.HOT_NOM.ToString() },
+                       { "HOT_SITEWEB", hotel.HOT_SITEWEB.ToString() },
+                       { "HOT_TEL", hotel.HOT_TEL.ToString() },
+                       { "HOT_VILLE", hotel.HOT_VILLE.ToString() },
+                       { "HTR_ID", user.HTR_ID.ToString() },
+                       { "IND_INDICATIF", hotel.IND_INDICATIF.ToString() },
+                       { "PAY_ID", hotel.PAY_ID.ToString() },
  
+                });
+
+                string result = System.Text.Encoding.UTF8.GetString(response);
+                return 0;
+            }
+ 
+
+
+
+        }
+
+
         public ListPrix getDefinitionPrixIndicatif()
         {
-            string StringContent = GetDataFromAPI("Search/PRX_ID/");
+            string StringContent = GetDataFromAPI("Search/PRX_ID/", "GET");
             XmlSerializer xs = new XmlSerializer(typeof(ListPrix));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
             var obj = xs.Deserialize(ms) as ListPrix;
@@ -53,7 +128,7 @@ namespace SmartTripWebClient.Models.DAL
         }
         public ListPays getDefinitionPays()
         {
-            string StringContent = GetDataFromAPI("Search/PAYS/");
+            string StringContent = GetDataFromAPI("Search/PAYS/", "GET");
             XmlSerializer xs = new XmlSerializer(typeof(ListPays));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
             var obj = xs.Deserialize(ms) as ListPays;
@@ -63,7 +138,7 @@ namespace SmartTripWebClient.Models.DAL
         }
         public ListEtoiles getDefinitionEtoiles()
         {
-            string StringContent = GetDataFromAPI("Search/ETOILES/");
+            string StringContent = GetDataFromAPI("Search/ETOILES/", "GET");
             XmlSerializer xs = new XmlSerializer(typeof(ListEtoiles));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
             var obj = xs.Deserialize(ms) as ListEtoiles;
@@ -73,7 +148,7 @@ namespace SmartTripWebClient.Models.DAL
         }
         public ListIND getDefinitionIND()
         {
-            string StringContent = GetDataFromAPI("Search/IND/");
+            string StringContent = GetDataFromAPI("Search/IND/", "GET");
             XmlSerializer xs = new XmlSerializer(typeof(ListIND));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
             var obj = xs.Deserialize(ms) as ListIND;
@@ -85,7 +160,7 @@ namespace SmartTripWebClient.Models.DAL
         {
 
 
-            string StringContent = GetDataFromAPI("Hotel");
+            string StringContent = GetDataFromAPI("Hotel", "GET");
             XmlSerializer xs = new XmlSerializer(typeof(ListHotels));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
             var obj = xs.Deserialize(ms) as ListHotels;
@@ -100,7 +175,7 @@ namespace SmartTripWebClient.Models.DAL
         {
 
 
-            string StringContent = GetDataFromAPI("Hotel/"+ ID);
+            string StringContent = GetDataFromAPI("Hotel/"+ ID,"GET");
 
 
             XmlSerializer xs = new XmlSerializer(typeof(T_E_HOTEL_HOT));
@@ -111,7 +186,7 @@ namespace SmartTripWebClient.Models.DAL
 
             return p;
         }
-        public string GetDataFromAPI(String endPoint)
+        public string GetDataFromAPI(String endPoint,String method)
         {
             string[] tab = { APIServer, Application, endPoint };
             String FullURL = string.Join("/", tab);
@@ -121,8 +196,8 @@ namespace SmartTripWebClient.Models.DAL
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(FullURL);
             request.ContentType = "application/xml; charset=utf-8";
-            request.Method = "GET";
-
+            request.Method = method;
+ 
             request.AutomaticDecompression = DecompressionMethods.GZip;
 
             using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
@@ -132,25 +207,8 @@ namespace SmartTripWebClient.Models.DAL
                 html = reader.ReadToEnd();
             }
             return html;
-            Console.WriteLine(html);
-
-            // dt = JsonConvert.DeserializeObject<DataTable>(maString, new DataTableConverter());
-            /* using (var client = new HttpClient())
-             {
-                 var values = new Dictionary<string, string>
-                 {
-                    { "thing1", "hello" },
-                  };
-
-                 var content = new FormUrlEncodedContent(values);
-
-                 var response = await client.PostAsync(FullURL, content);
-
-                 var responseString = await response.Content.ReadAsStringAsync();
-
-                 return responseString;
-
-             }*/
+ 
+           
 
 
 

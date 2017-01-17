@@ -26,6 +26,7 @@ namespace SmartTripWebClient.Models
             this.T_E_ABONNE_ABO = new HashSet<T_E_ABONNE_ABO>();
             this.T_E_HOTEL_HOT1 = new HashSet<T_E_HOTEL_HOT>();
             this.T_E_HOTEL_HOT2 = new HashSet<T_E_HOTEL_HOT>();
+            
         }
     
         public decimal HOT_ID { get; set; }
