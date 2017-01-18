@@ -34,7 +34,19 @@ namespace SmartTripV1.Controllers
 
             return Ok(t_E_ABONNE_ABO);
         }
+        [System.Web.Http.Route("api/Search/Abonne/")]
+        [HttpGet]
+        public IHttpActionResult SearchAbonneByMail(string mail)
+        {
+            var Abonne = (from u in db.T_E_ABONNE_ABO
+                                    where (u.ABO_MEL.ToLower().Equals(mail.ToLower()))
+                                    select u);
 
+
+
+
+            return Ok(Abonne);
+        }
         // PUT: api/Abonne/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutT_E_ABONNE_ABO(decimal id, T_E_ABONNE_ABO t_E_ABONNE_ABO)

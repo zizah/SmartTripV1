@@ -164,11 +164,25 @@ namespace SmartTripWebClient.Models.DAL
             XmlSerializer xs = new XmlSerializer(typeof(ListHotels));
             MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
             var obj = xs.Deserialize(ms) as ListHotels;
+            foreach (T_E_HOTEL_HOT hotel in obj.Items)
+            {
+                hotel.T_E_PHOTO_PHO = RenvoiPhotoHotel(hotel.HOT_ID).Items;
+            }
 
             return obj;
 
 
 
+        }
+
+        public ListPhoto RenvoiPhotoHotel(Decimal id)
+        {
+            string StringContent = GetDataFromAPI("Search/Photo/?ID_HOT="+ id, "GET");
+            XmlSerializer xs = new XmlSerializer(typeof(ListPhoto));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListPhoto;
+
+            return obj;
         }
 
         public T_E_HOTEL_HOT RenvoieHotel(int ID)

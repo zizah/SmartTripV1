@@ -362,6 +362,7 @@
     <Content Include="Views\Compte\LoginHotelier.cshtml" />
     <Content Include="Views\Hotel\index.cshtml" />
     <Content Include="Views\Compte\RegisterAbonne.cshtml" />
+    <Content Include="Views\Compte\UpdateAbonne.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -12,7 +12,7 @@ namespace SmartTripWebClient.Models
     {
     }
 
-    [MetadataType(typeof(T_E_ABONNE_ABO))]
+    [MetadataType(typeof(T_E_ABONNE_ABOMetadata))]
     public partial class T_E_ABONNE_ABO
     {
     }

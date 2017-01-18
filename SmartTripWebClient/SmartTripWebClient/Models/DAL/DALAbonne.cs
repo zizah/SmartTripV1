@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Text;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace SmartTripWebClient.Models.DAL
 {
@@ -21,6 +24,18 @@ namespace SmartTripWebClient.Models.DAL
         CollectionModel IDal.RenvoiTous()
         {
             throw new NotImplementedException();
+        }
+        public T_E_ABONNE_ABO SearchUser(string mail)
+        {
+
+            string StringContent = GetDataFromAPI("Search/Abonne/?mail=" + mail, "GET");
+            XmlSerializer xs = new XmlSerializer(typeof(ListAbonne));
+            MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(StringContent));
+            var obj = xs.Deserialize(ms) as ListAbonne;
+
+            return obj.Items.First();
+
+
         }
         public void Register(T_E_ABONNE_ABO abonne)
         {
@@ -59,6 +74,33 @@ namespace SmartTripWebClient.Models.DAL
         CollectionModel IDal.Search(string query)
         {
             throw new NotImplementedException();
+        }
+        public string GetDataFromAPI(String endPoint, String method)
+        {
+            string[] tab = { APIServer, Application, endPoint };
+            String FullURL = string.Join("/", tab);
+            Console.WriteLine(FullURL);
+
+            string html = string.Empty;
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(FullURL);
+            request.ContentType = "application/xml; charset=utf-8";
+            request.Method = method;
+
+            request.AutomaticDecompression = DecompressionMethods.GZip;
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                html = reader.ReadToEnd();
+            }
+            return html;
+
+
+
+
+
         }
     }
 }

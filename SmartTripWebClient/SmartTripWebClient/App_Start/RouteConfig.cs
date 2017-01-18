@@ -13,7 +13,13 @@ namespace SmartTripWebClient
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            
 
+                routes.MapRoute(
+    name: "UpdateAbonne",
+    url: "Compte/UpdateAbonne/",
+    defaults: new { controller = "Compte", action = "UpdateAbonne" }
+    );
             routes.MapRoute(
     name: "SearchHotel",
     url: "Hotel/Search/",

@@ -11,7 +11,8 @@ namespace SmartTripWebClient.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Xml.Serialization;
+
     public partial class T_E_ABONNE_ABO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -41,10 +42,13 @@ namespace SmartTripWebClient.Models
         public virtual T_R_INDICATIFTEL_IND T_R_INDICATIFTEL_IND { get; set; }
         public virtual T_R_PAYS_PAY T_R_PAYS_PAY { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_AVIS_AVI> T_E_AVIS_AVI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_HOTEL_HOT> T_E_HOTEL_HOT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [XmlIgnore]
         public virtual ICollection<T_E_AVIS_AVI> T_E_AVIS_AVI1 { get; set; }
     }
 }

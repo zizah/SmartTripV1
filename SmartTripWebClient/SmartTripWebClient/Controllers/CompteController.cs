@@ -25,12 +25,37 @@ namespace SmartTripWebClient.Controllers
         {
             return View();
         }
-        public T_E_ABONNE_ABO AuthentifierAbonne(string nom, string password)
-        {
-            throw new NotImplementedException();
-        }
+        
         public ActionResult Login()
         {
+            return View();
+        }
+        public ActionResult UpdateAbonne()
+        {
+
+            string userID = System.Web.HttpContext.Current.User.Identity.GetUserId();
+            T_E_ABONNE_ABO user = WSModelAbonne.SearchUser(userID);
+
+
+            ListPays ListPays = WSModelHotel.getDefinitionPays();
+            ListIND ListIND = WSModelHotel.getDefinitionIND();
+            ViewData["PAY_ID"] = new SelectList(ListPays.Items, "PAY_ID", "PAY_NOM", user.PAY_ID);
+            ViewData["IND_INDICATIF"] = new SelectList(ListIND.Items, "IND_INDICATIF", "IND_INDICATIF", user.IND_INDICATIF);
+            ViewData["ABO_PSEUDO"] = user.ABO_PSEUDO;
+            ViewData["ABO_MOTPASSE"] = user.ABO_MOTPASSE;
+            ViewData["ABO_MEL"] = user.ABO_MEL;
+            ViewData["ABO_NOM"] = user.ABO_NOM;
+            ViewData["ABO_PRENOM"] = user.ABO_PRENOM;
+            ViewData["ABO_ADRLIGNE1"] = user.ABO_ADRLIGNE1;
+            ViewData["ABO_ADRLIGNE2"] = user.ABO_ADRLIGNE2;
+            ViewData["ABO_CP"] = user.ABO_CP;
+            ViewData["ABO_VILLE"] = user.ABO_VILLE;
+            ViewData["ABO_ETAT"] = user.ABO_ETAT;
+             ViewData["ABO_TEL"] = user.ABO_TEL;
+            ViewData["ABO_AEROPORT"] = user.ABO_AEROPORT;
+
+
+
             return View();
         }
         public ActionResult LoginHotelier()

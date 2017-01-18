@@ -12,8 +12,14 @@ namespace SmartTripWebClient.Models.DAL
 
     }
 
-    
-        [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/SmartTripV1.Models", ElementName = "ArrayOfT_E_HOTELIER_HTR", DataType = "ListHoteliers", IsNullable = true)]
+    [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/SmartTripV1.Models", ElementName = "ArrayOfT_E_ABONNE_ABO", DataType = "ListAbonne", IsNullable = true)]
+    public class ListAbonne : CollectionModel
+    {
+        [XmlElement("T_E_ABONNE_ABO")]
+        public T_E_ABONNE_ABO[] Items { get; set; }
+    }
+
+    [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/SmartTripV1.Models", ElementName = "ArrayOfT_E_HOTELIER_HTR", DataType = "ListHoteliers", IsNullable = true)]
     public class ListHoteliers: CollectionModel
     {
         [XmlElement("T_E_HOTELIER_HTR")]
@@ -46,6 +52,15 @@ namespace SmartTripWebClient.Models.DAL
         [XmlElement("T_R_INDICATIFTEL_IND")]
         public T_R_INDICATIFTEL_IND[] Items { get; set; }
     }
+
+    [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/SmartTripV1.Models", ElementName = "ArrayOfT_E_PHOTO_PHO", DataType = "ListPhoto", IsNullable = true)]
+    public class ListPhoto : CollectionModel
+    {
+        [XmlElement("T_E_PHOTO_PHO")]
+        public T_E_PHOTO_PHO[] Items { get; set; }
+    }
+
+    
 
     [XmlRoot(Namespace = "http://schemas.datacontract.org/2004/07/SmartTripV1.Models", ElementName = "ArrayOfT_R_CATEGORIEHOTEL_CAT", DataType = "ListEtoiles", IsNullable = true)]
     public class ListEtoiles: CollectionModel
