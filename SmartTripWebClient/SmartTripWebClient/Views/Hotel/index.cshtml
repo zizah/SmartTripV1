@@ -59,7 +59,14 @@
             {
                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
                     <a class="thumbnail" href="#">
+                        @if (hotel.T_E_PHOTO_PHO != null){
+                        <img class="img-responsive" src="~/Content/@(hotel.T_E_PHOTO_PHO.First().PHO_URL)" alt="">
+                        }
+                        else
+                        {
                         <img class="img-responsive" src="http://placehold.it/400x300" alt="">
+
+                        }
                         <span class="stars"><span style="width: @(@hotel.CAT_NBETOILES * 20)%"></span></span>
                     </a>
                 </div>
