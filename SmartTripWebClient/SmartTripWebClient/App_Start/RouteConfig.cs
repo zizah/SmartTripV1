@@ -64,7 +64,7 @@ namespace SmartTripWebClient
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Hotel", action = "Index", id = UrlParameter.Optional }
             );
            
         }

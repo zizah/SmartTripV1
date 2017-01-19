@@ -10,13 +10,7 @@
     <title>Liste Hotels</title>
 </head>
 <body>
-    <div class="jumbotron">
-        <h1>NOS HOTELS</h1>
-        <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
-        <p>
-            <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Devenez Hotelier</a>
-        </p>
-    </div>
+    
     <div class="row">
 
         <div class="search-bloc">
@@ -57,7 +51,7 @@
         {
             foreach (var hotel in Model.Items)
             {
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <div class="col-lg-3 col-md-4 col-xs-12 thumb">
                     <a class="thumbnail" href="#">
                         @if (hotel.T_E_PHOTO_PHO != null){
                         <img class="img-responsive" src="~/Content/@(hotel.T_E_PHOTO_PHO.First().PHO_URL)" alt="">

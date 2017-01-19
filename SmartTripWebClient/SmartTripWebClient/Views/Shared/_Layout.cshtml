@@ -13,13 +13,13 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+                <div class="logo"><img src="~/Content/images/logo.png" /></div>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Nom d'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
+             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
@@ -30,7 +30,20 @@
             </div>
         </div>
     </div>
+    <div class="jumbotron headFullWidth">
+        <div class="container body-content"> 
+            <div class="row head-layer">
+
+                <h1>NOS HOTELS</h1>
+                <p>This example is a quick exercise to illustrate how the default, static navbar and fixed to top navbar work. It includes the responsive CSS and HTML, so it also adapts to your viewport and device.</p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="../../components/#navbar" role="button">Devenez Hotelier</a>
+                </p>
+            </div>
+        </div>
+    </div>
     <div class="container body-content">
+        
         @RenderBody()
         <hr />
         <footer>
