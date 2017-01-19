@@ -27,6 +27,7 @@ namespace SmartTripWebClient.Models.DAL
             throw new NotImplementedException();
         }
 
+        // RECHERCHEER HOTEL PAR MOT CLES
         public CollectionModel Search(string query)
         {
 
@@ -47,7 +48,7 @@ namespace SmartTripWebClient.Models.DAL
 
 
         }
-
+        // RECHERCHER HOTELIER PAR MAIL 
         public T_E_HOTELIER_HTR SearchUser(string mail)
         {
 
@@ -60,6 +61,10 @@ namespace SmartTripWebClient.Models.DAL
 
 
         }
+
+
+
+        // INITIALISER LES DONNES PAR PRECAUTION
 
         public T_E_HOTEL_HOT cleanHotel(T_E_HOTEL_HOT hotel)
         {
@@ -77,6 +82,8 @@ namespace SmartTripWebClient.Models.DAL
 
             return hotel;
         }
+
+        // AJOUTER NOUVEL HOTEL
         public int addHotel(T_E_HOTEL_HOT hotel_)
         {
             //HTR_ID
@@ -122,6 +129,8 @@ namespace SmartTripWebClient.Models.DAL
         }
 
 
+
+        // RECUPERER LE DICTIONNAIRE DES DONNES PRX_ID
         public ListPrix getDefinitionPrixIndicatif()
         {
             string StringContent = GetDataFromAPI("Search/PRX_ID/", "GET");
@@ -132,6 +141,7 @@ namespace SmartTripWebClient.Models.DAL
             return obj;
 
         }
+        // RECUPERER LE DICTIONNAIRE DES DONNES PAYS
         public ListPays getDefinitionPays()
         {
             string StringContent = GetDataFromAPI("Search/PAYS/", "GET");
@@ -142,6 +152,9 @@ namespace SmartTripWebClient.Models.DAL
             return obj;
 
         }
+
+        // RECUPERER LE DICTIONNAIRE DES DONNES ETOILES
+
         public ListEtoiles getDefinitionEtoiles()
         {
             string StringContent = GetDataFromAPI("Search/ETOILES/", "GET");
@@ -152,6 +165,8 @@ namespace SmartTripWebClient.Models.DAL
             return obj;
 
         }
+        // RECUPERER LE DICTIONNAIRE DES DONNES IND
+
         public ListIND getDefinitionIND()
         {
             string StringContent = GetDataFromAPI("Search/IND/", "GET");
@@ -162,6 +177,9 @@ namespace SmartTripWebClient.Models.DAL
             return obj;
 
         }
+
+        // RECUPERER  TOUS LES HOTELS
+
         public CollectionModel RenvoiTous()
         {
 
@@ -181,6 +199,8 @@ namespace SmartTripWebClient.Models.DAL
 
         }
 
+        // RECUPERER  TOUTES LES PHOTO D UN  HOTEL
+
         public ListPhoto RenvoiPhotoHotel(Decimal id)
         {
             string StringContent = GetDataFromAPI("Search/Photo/?ID_HOT="+ id, "GET");
@@ -191,11 +211,13 @@ namespace SmartTripWebClient.Models.DAL
             return obj;
         }
 
+
+        // RECUPERER LA FICHE HOTEL 
         public T_E_HOTEL_HOT RenvoieHotel(int ID)
         {
 
 
-            string StringContent = GetDataFromAPI("Hotel/"+ ID,"GET");
+            string StringContent = GetDataFromAPI("Hotel/" + ID, "GET");
 
 
             XmlSerializer xs = new XmlSerializer(typeof(T_E_HOTEL_HOT));
@@ -206,6 +228,8 @@ namespace SmartTripWebClient.Models.DAL
 
             return p;
         }
+
+        // FONCTION  GENERIQUE POUR CALL WS
         public string GetDataFromAPI(String endPoint,String method)
         {
             string[] tab = { APIServer, Application, endPoint };

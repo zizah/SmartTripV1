@@ -14,6 +14,7 @@ namespace SmartTripWebClient.Controllers
 {
     public class HotelController : Controller
     {
+        // COUCHE DE DONNES DATA ACCESS LAYER
         DalHotel WSModel = new DalHotel();
         // GET: Hotel
         public ActionResult Index()
@@ -22,11 +23,13 @@ namespace SmartTripWebClient.Controllers
 
             return View(listeHotel);
         }
+       // TEST HELLO WORLD
         public string AfficherResultat(string date)
         {
             DateTime d = DateTime.ParseExact(date, "dd-MM-yyyy", CultureInfo.InvariantCulture);
             return "Il n'existe pas d'Hotel à cette date " + d.ToString();
         }
+        // RECHERCHER UN HOTEL PAR VILLE (%VILLE%)
         public ActionResult Search(string query)
         {
             CollectionModel listeHotel = WSModel.Search(query);
@@ -35,6 +38,8 @@ namespace SmartTripWebClient.Controllers
         }
 
         
+        // AJOUTER UN NOUVEL HOTEL: Envoi des donnes au WS
+        // HOT_ID est exclu du Model car auto_increment
         [HttpPost]
         public HttpResponseMessage CreerHotel([Bind(Exclude = "HOT_ID")]T_E_HOTEL_HOT newHotel)
         {
@@ -50,6 +55,8 @@ namespace SmartTripWebClient.Controllers
             }
         }
         [Authorize]
+
+        //CREER UN NOUVEL HOTEL: VUE
         public ActionResult CreerHotel()
         {
 

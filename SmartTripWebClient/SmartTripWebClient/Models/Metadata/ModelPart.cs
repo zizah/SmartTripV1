@@ -6,7 +6,9 @@ using System.Linq;
 using System.Web;
 
 namespace SmartTripWebClient.Models
+
 {
+    // LISTE META DATA DEFINITIONS
     [MetadataType(typeof(T_E_HOTEL_HOTMetadata))]
     public partial class T_E_HOTEL_HOT
     {

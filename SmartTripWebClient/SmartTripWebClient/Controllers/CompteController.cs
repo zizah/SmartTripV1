@@ -21,24 +21,36 @@ namespace SmartTripWebClient.Controllers
         DalHotel WSModelHotel = new Models.DAL.DalHotel();
 
         // GET: Compte
+
         public ActionResult Index()
         {
             return View();
         }
-        
+
+        //HANDLER POUR AFFICHER LA CONNEXION 
         public ActionResult Login()
         {
             return View();
         }
+        //MISE A JOUR DUN COMPTE ABONNE
+
         public ActionResult UpdateAbonne()
         {
 
+            //RECUPERER LE id USER CONNECTE ACTUELLEMENT DEPUIS IDENTITY
             string userID = System.Web.HttpContext.Current.User.Identity.GetUserId();
+
+            //RECUPERER LE  ABONNE OBJECT
+
             T_E_ABONNE_ABO user = WSModelAbonne.SearchUser(userID);
 
+            //RECUPERER LES DICTIONNAIRES DE DONNES
 
             ListPays ListPays = WSModelHotel.getDefinitionPays();
             ListIND ListIND = WSModelHotel.getDefinitionIND();
+
+            //RECUPERER LES DICTIONNAIRES DE DONNES
+            // J'UTILISE LES VIEW DATA ET NON LE VIEW BAG PAR PREFERNCE DE LISIBILITE 
             ViewData["PAY_ID"] = new SelectList(ListPays.Items, "PAY_ID", "PAY_NOM", user.PAY_ID);
             ViewData["IND_INDICATIF"] = new SelectList(ListIND.Items, "IND_INDICATIF", "IND_INDICATIF", user.IND_INDICATIF);
             ViewData["ABO_PSEUDO"] = user.ABO_PSEUDO;
@@ -51,11 +63,11 @@ namespace SmartTripWebClient.Controllers
             ViewData["ABO_CP"] = user.ABO_CP;
             ViewData["ABO_VILLE"] = user.ABO_VILLE;
             ViewData["ABO_ETAT"] = user.ABO_ETAT;
-             ViewData["ABO_TEL"] = user.ABO_TEL;
+            ViewData["ABO_TEL"] = user.ABO_TEL;
             ViewData["ABO_AEROPORT"] = user.ABO_AEROPORT;
 
 
-
+            // LANCER LA VUE
             return View();
         }
         public ActionResult LoginHotelier()
@@ -68,9 +80,10 @@ namespace SmartTripWebClient.Controllers
         public async Task<ActionResult> Login(T_E_ABONNE_ABO model, string returnUrl)
         {
             var claims = new List<Claim>();
-            // create required claims
+            // CREER LES POINTS DAUTHENTIFICATION
             claims.Add(new Claim(ClaimTypes.NameIdentifier, model.ABO_MEL.ToString()));
             claims.Add(new Claim(ClaimTypes.Name, model.ABO_MOTPASSE));
+            // AJOUTER LE TYPE DU COMPTE 
             claims.Add(new Claim("OrganizationId", "Abonne"));
 
             var identity = new ClaimsIdentity(claims,
@@ -83,6 +96,7 @@ namespace SmartTripWebClient.Controllers
                 ExpiresUtc = DateTime.UtcNow.AddDays(7)
             }, identity);
 
+            //REDIRIGER VERS LA HOME
             return View("../Home/Index");
         }
         [HttpPost]
@@ -91,9 +105,11 @@ namespace SmartTripWebClient.Controllers
         public async Task<ActionResult> LoginHotelier(T_E_HOTELIER_HTR model, string returnUrl)
         {
             var claims = new List<Claim>();
-            // create required claims
+            // CREER LES POINTS DAUTHENTIFICATION
             claims.Add(new Claim(ClaimTypes.NameIdentifier, model.HTR_MEL.ToString()));
             claims.Add(new Claim(ClaimTypes.Name, model.HTR_MOTPASSE));
+            // AJOUTER LE TYPE DU COMPTE 
+
             claims.Add(new Claim("OrganizationId", "Hotelier"));
             var identity = new ClaimsIdentity(claims,
            DefaultAuthenticationTypes.ApplicationCookie);
@@ -104,6 +120,7 @@ namespace SmartTripWebClient.Controllers
                 IsPersistent = true,
                 ExpiresUtc = DateTime.UtcNow.AddDays(7)
             }, identity);
+            //REDIRIGER VERS LA HOME
 
             return View("../Home/Index");
         }
@@ -114,12 +131,13 @@ namespace SmartTripWebClient.Controllers
             return View("../Home/Index");
         }
 
+        //INSCRIPTION ABONNE POST via WS
         [HttpPost]
         public HttpResponseMessage RegisterAbonne(T_E_ABONNE_ABO abonne)
         {
             if (ModelState.IsValid && abonne != null)
             {
-                WSModelAbonne.Register(abonne);
+               string data= WSModelAbonne.Register(abonne);
 
                 return null;
             }
@@ -130,6 +148,8 @@ namespace SmartTripWebClient.Controllers
 
             
         }
+        //INSCRIPTION ABONNE FORM 
+
         [HttpGet]
         public ActionResult RegisterAbonne()
         {

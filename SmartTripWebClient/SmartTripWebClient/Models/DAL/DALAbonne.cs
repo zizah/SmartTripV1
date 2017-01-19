@@ -10,6 +10,9 @@ using System.Xml.Serialization;
 
 namespace SmartTripWebClient.Models.DAL
 {
+
+    // DATA LAYER ACCESS  COUCHE PERMETTANT DE LIER LE WS AVEC LE CONTROLLER
+    // LA COUCHE CENTRALISE LES APPEL WS
     public class DALAbonne : IDal
     {
         String APIServer = "http://localhost:2293";
@@ -25,6 +28,8 @@ namespace SmartTripWebClient.Models.DAL
         {
             throw new NotImplementedException();
         }
+
+        // RECHERCHER UN ABONNE PAR SON MAIL
         public T_E_ABONNE_ABO SearchUser(string mail)
         {
 
@@ -37,7 +42,8 @@ namespace SmartTripWebClient.Models.DAL
 
 
         }
-        public void Register(T_E_ABONNE_ABO abonne)
+        //INSCRIRE UN ABONNE
+        public string Register(T_E_ABONNE_ABO abonne)
         {
             using (WebClient client = new WebClient())
             {
@@ -68,13 +74,18 @@ namespace SmartTripWebClient.Models.DAL
                 });
 
                 string result = System.Text.Encoding.UTF8.GetString(response);
+                return result;
             }
         }
 
+
+        // NON IMPLEMENTE
         CollectionModel IDal.Search(string query)
         {
             throw new NotImplementedException();
         }
+
+        // FONCTION GENERIQUE PERMETTANT DE RECUPERER LE OUTPUT DU WS
         public string GetDataFromAPI(String endPoint, String method)
         {
             string[] tab = { APIServer, Application, endPoint };

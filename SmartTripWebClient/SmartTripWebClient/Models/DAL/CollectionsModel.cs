@@ -7,6 +7,8 @@ using System.Xml.Serialization;
 namespace SmartTripWebClient.Models.DAL
 {
 
+
+    // COUCHE PERMETTANT DE GERER LES COLLECTIONS DE DONNES RECUPERES PAR LE WS DE TYPE ArrayOf<MODEL_CLASS>
     public class CollectionModel
     {
 

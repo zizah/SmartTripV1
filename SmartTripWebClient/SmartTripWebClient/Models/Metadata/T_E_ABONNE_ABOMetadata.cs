@@ -6,6 +6,8 @@ using System.Xml.Serialization;
 
 namespace SmartTripWebClient.Models.Metadata
 {
+
+    // SURCHARGE DE LA CLASSE MODEL 
     public class T_E_ABONNE_ABOMetadata
     {
         public decimal ABO_ID { get; set; }

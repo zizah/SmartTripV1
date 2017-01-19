@@ -6,6 +6,8 @@ namespace SmartTripWebClient.Models.Metadata
 {
     public class T_E_HOTEL_HOTMetadata
     {
+        // SURCHARGE DE LA CLASSE MODEL 
+
         public decimal HOT_ID { get; set; }
         public decimal HTR_ID { get; set; }
         public decimal PRX_ID { get; set; }
